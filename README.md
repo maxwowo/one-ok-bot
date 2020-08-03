@@ -1,4 +1,4 @@
 # One Ok Bot
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/maxwowo/one-ok-bot/CI)
+![CI](https://github.com/maxwowo/one-ok-bot/workflows/Build/badge.svg)
 
 Discord bot that plays One Ok Rock songs.
