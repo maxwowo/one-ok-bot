@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: brew install ktlint
+      - name: Install linter
+        run: brew install ktlint
 
       - name: Lint
         run: ktlint --reporter=checkstyle,output=build/ktlint-report-in-checkstyle-format.xml
