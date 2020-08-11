@@ -1,5 +1,5 @@
 package bot
 
 fun main() {
-    print("bruh")
+    val configuration = Configuration.PREFIX
 }
