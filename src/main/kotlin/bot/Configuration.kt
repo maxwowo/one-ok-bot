@@ -1,6 +1,6 @@
 package bot
 
-import bot.errors.EnvironmentVariableNotFoundException
+import bot.exceptions.EnvironmentVariableNotFoundException
 
 object Configuration {
     val TOKEN = System.getenv("TOKEN") ?: throw EnvironmentVariableNotFoundException("TOKEN")
