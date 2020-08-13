@@ -1,4 +1,4 @@
-package bot.specifications
+package bot.configurations.specifications
 
 import com.uchuhimo.konf.ConfigSpec
 
@@ -7,7 +7,7 @@ import com.uchuhimo.konf.ConfigSpec
  *
  * This is used by Konf and will not be accessed externally
  */
-object BotSpecification : ConfigSpec() {
+object BotSpec : ConfigSpec() {
     /* Bot login token */
     val token by required<String>(description = "Bot login token")
 
