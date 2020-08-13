@@ -7,7 +7,7 @@ import java.util.Properties
  *
  * Build information is stored in build.properties in the resources directory
  */
-class Build {
+class BuildProperties {
     private val properties = Properties()
 
     /* Current bot version */
@@ -16,7 +16,7 @@ class Build {
     }
 
     /* Load the build information */
-    fun load(): Build {
+    fun load(): BuildProperties {
         properties.load(Thread.currentThread().contextClassLoader.getResourceAsStream("build.properties"))
 
         return this
@@ -24,8 +24,8 @@ class Build {
 }
 
 /**
- * The singleton [Build]
+ * The singleton [BuildProperties]
  *
- * You should always use this instead of constructing an instance of [Build] yourself
+ * You should always use this instead of constructing an instance of [BuildProperties] yourself
  */
-val build = Build().load()
+val build = BuildProperties().load()
