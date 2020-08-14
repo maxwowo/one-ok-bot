@@ -25,6 +25,9 @@ class Configurations {
 
     /* Bot command prefix */
     val prefix: String get() = configurations[BotSpec.commandPrefix]
+
+    /* ID of the bot's owner */
+    val owner: String get() = configurations[BotSpec.owner]
 }
 
 /**

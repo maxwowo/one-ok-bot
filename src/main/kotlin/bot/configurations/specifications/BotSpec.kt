@@ -13,4 +13,7 @@ object BotSpec : ConfigSpec() {
 
     /* Character/s required before commands */
     val commandPrefix by required<String>(name = "prefix", description = "Command prefix")
+
+    /* ID of the bot's owner */
+    val owner by required<String>(description = "Discord ID of the bot's owner")
 }
