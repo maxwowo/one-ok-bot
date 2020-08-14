@@ -20,7 +20,6 @@ class Bot {
         /* Client setup */
         client.setOwnerId(configuration.owner)
         client.setPrefix(configuration.prefix)
-        client.useDefaultGame()
 
         client.addCommands(
             /* Command to get the bot to reply "Bruh" back to you */
