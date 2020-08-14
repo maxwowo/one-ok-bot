@@ -23,6 +23,9 @@ dependencies {
   implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
   implementation 'org.jetbrains.kotlin:kotlin-reflect'
 
+  /* Music player */
+  implementation 'com.sedmelluq:lavaplayer:1.3.50'
+
   /* Configuration */
   implementation 'com.uchuhimo:konf:0.22.1'
 
