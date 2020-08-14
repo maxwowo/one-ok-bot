@@ -6,6 +6,11 @@ import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
 
+/**
+ * Class that represents the bot
+ *
+ * Initializes the various JDA factories and runs the bot
+ */
 class Bot {
     fun start() {
         val builder = JDABuilder.createDefault(configuration.token)
@@ -18,6 +23,7 @@ class Bot {
         client.useDefaultGame()
 
         client.addCommands(
+            /* Command to get the bot to reply "Bruh" back to you */
             BruhCommand()
         )
 
