@@ -10,8 +10,9 @@ import com.uchuhimo.konf.source.yaml
  *
  * Configuration is loaded from two locations, with values from earlier locations being overwritten by values in later
  * locations
- * 1) Environment variables defined at run-time
- * 2) System properties defined at run-time
+ * 1) The default.yml file found in resources
+ * 2) Environment variables defined at run-time
+ * 3) System properties defined at run-time
  */
 class Configurations {
     /* Configuration map */

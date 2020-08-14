@@ -18,6 +18,7 @@ class Bot {
         val client = CommandClientBuilder()
 
         /* Client setup */
+        client.useDefaultGame()
         client.setOwnerId(configuration.owner)
         client.setPrefix(configuration.prefix)
 
