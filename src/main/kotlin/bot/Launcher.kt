@@ -1,7 +1,6 @@
 package bot
 
 import bot.configurations.build
-import bot.configurations.configuration
 import mu.KotlinLogging
 
 fun main() {
