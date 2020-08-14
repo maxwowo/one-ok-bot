@@ -35,3 +35,24 @@ compileKotlin {
 compileTestKotlin {
   kotlinOptions.jvmTarget = '1.8'
 }
+
+jar {
+  manifest {
+    attributes 'Main-Class': 'LauncherKt'
+  }
+}
+
+task fatJar(type: Jar) {
+  with jar
+  manifest {
+    attributes 'Main-Class': 'LauncherKt'
+  }
+
+  from {
+    configurations.compile.collect {
+      zipTree(it)
+    }
+  }
+}
+
+task stage(dependsOn: ['fatJar'])
