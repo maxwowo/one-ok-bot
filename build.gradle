@@ -36,23 +36,17 @@ compileTestKotlin {
   kotlinOptions.jvmTarget = '1.8'
 }
 
-jar {
-  manifest {
-    attributes 'Main-Class': 'LauncherKt'
-  }
+sourceSets {
+  main.java.srcDirs += 'src/main/kotlin/'
+  test.java.srcDirs += 'src/test/kotlin/'
 }
 
-task fatJar(type: Jar) {
-  with jar
+jar {
   manifest {
-    attributes 'Main-Class': 'LauncherKt'
+    attributes 'Main-Class': 'bot.LauncherKt'
   }
 
   from {
-    configurations.compile.collect {
-      zipTree(it)
-    }
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
   }
 }
-
-task stage(dependsOn: ['fatJar'])
