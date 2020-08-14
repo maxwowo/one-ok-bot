@@ -15,7 +15,7 @@ class BuildProperties {
         properties.getProperty("version")
     }
 
-    /* Load the build information */
+    /* Load the build properties */
     fun load(): BuildProperties {
         properties.load(Thread.currentThread().contextClassLoader.getResourceAsStream("build.properties"))
 
