@@ -12,7 +12,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 class OkCommand : Command() {
     init {
         name = "ok"
-        help = "Skips a song"
+        help = "Skips the current song in the queue"
     }
 
     override fun execute(event: CommandEvent) {
