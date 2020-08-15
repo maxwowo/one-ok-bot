@@ -8,6 +8,7 @@ import bot.configurations.configuration
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.dv8tion.jda.api.utils.ChunkingFilter
 
@@ -24,7 +25,6 @@ class Bot {
 
         /* Client setup */
         with(client) {
-            useDefaultGame()
             setOwnerId(configuration.owner)
             setPrefix(configuration.prefix)
 
@@ -45,6 +45,7 @@ class Bot {
 
         /* Builder setup */
         with(builder) {
+            setActivity(Activity.listening("${configuration.prefix}help"))
             addEventListeners(waiter, client.build())
             setChunkingFilter(ChunkingFilter.ALL)
             enableIntents(GatewayIntent.GUILD_MEMBERS)
