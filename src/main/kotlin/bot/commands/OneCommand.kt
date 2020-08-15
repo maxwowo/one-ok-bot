@@ -13,7 +13,7 @@ class OneCommand : Command() {
     init {
         name = "one"
         help = "Plays a song"
-        arguments = "<track URL>"
+        arguments = "<Youtube URL>"
     }
 
     override fun execute(event: CommandEvent) {
