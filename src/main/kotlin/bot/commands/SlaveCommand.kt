@@ -11,23 +11,24 @@ import com.jagrosh.jdautilities.command.CommandEvent
 class SlaveCommand : Command() {
     init {
         name = "slave"
-        help = "Tags Rhythm Bot or other music bots if present"
+        help = "Tags other music bots if present"
     }
 
     override fun execute(event: CommandEvent) {
-        val musicBotIDs = setOf("234395307759108106", "235088799074484224", "155149108183695360")
-        val taggedMembers = ArrayList<String>()
+        val bots = ArrayList<String>()
 
         for (member in event.guild.members) {
-            if (member.id in musicBotIDs) {
-                taggedMembers.add(member.id)
+            val user = member.user
+
+            if (user.isBot && user != event.jda.selfUser) {
+                bots.add(member.id)
             }
         }
 
-        if (taggedMembers.isEmpty()) {
+        if (bots.isEmpty()) {
             event.reply("No slaves to be found")
         } else {
-            event.reply(taggedMembers.joinToString(" ") { "<@$it>" })
+            event.reply(bots.joinToString(" ") { "<@$it>" })
         }
     }
 }
