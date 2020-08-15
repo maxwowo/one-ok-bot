@@ -38,8 +38,10 @@ class AudioPlayerManager {
                 override fun playlistLoaded(playlist: AudioPlaylist) {
                     val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
 
-                    channel.sendMessage("\uD83C\uDFB8 Adding to queue ${firstTrack.info.title} " +
-                        "(first track of playlist ${playlist.name})").queue()
+                    channel.sendMessage(
+                        "\uD83C\uDFB8 Adding to queue ${firstTrack.info.title} " +
+                            "(first track of playlist ${playlist.name})"
+                    ).queue()
 
                     playTrack(channel.guild, musicManager, firstTrack)
                 }
