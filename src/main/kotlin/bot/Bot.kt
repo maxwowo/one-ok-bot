@@ -2,6 +2,7 @@ package bot
 
 import bot.commands.BruhCommand
 import bot.commands.PlayCommand
+import bot.commands.SkipCommand
 import bot.configurations.configuration
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
@@ -28,7 +29,9 @@ class Bot {
                 /* Command to get the bot to reply "Bruh" back to you */
                 BruhCommand(),
                 /* Command to play a song */
-                PlayCommand()
+                PlayCommand(),
+                /* Command to skip a song */
+                SkipCommand()
             )
         }
 
