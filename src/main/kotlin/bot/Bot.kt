@@ -18,17 +18,21 @@ class Bot {
         val client = CommandClientBuilder()
 
         /* Client setup */
-        client.useDefaultGame()
-        client.setOwnerId(configuration.owner)
-        client.setPrefix(configuration.prefix)
+        with(client) {
+            useDefaultGame()
+            setOwnerId(configuration.owner)
+            setPrefix(configuration.prefix)
 
-        client.addCommands(
-            /* Command to get the bot to reply "Bruh" back to you */
-            BruhCommand()
-        )
+            addCommands(
+                /* Command to get the bot to reply "Bruh" back to you */
+                BruhCommand()
+            )
+        }
 
         /* Builder setup */
-        builder.addEventListeners(waiter, client.build())
-        builder.build()
+        with(builder) {
+            addEventListeners(waiter, client.build())
+            build()
+        }
     }
 }

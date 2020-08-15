@@ -15,6 +15,6 @@ class BruhCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
-        event.reply("Bruh")
+        event.reply("\uD83C\uDFB8 Bruh")
     }
 }
