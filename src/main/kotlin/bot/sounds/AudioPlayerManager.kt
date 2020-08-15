@@ -1,5 +1,7 @@
 package bot.sounds
 
+import bot.commands.OneCommand
+import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager
@@ -23,35 +25,32 @@ class AudioPlayerManager {
         AudioSourceManagers.registerLocalSource(playerManager)
     }
 
-    fun loadAndPlay(channel: TextChannel, trackURL: String) {
-        val musicManager = findGuildMusicManager(channel.guild)
+    fun loadAndPlay(event: CommandEvent, trackURL: String) {
+        val musicManager = findGuildMusicManager(event.guild)
 
         playerManager.loadItemOrdered(
             musicManager, trackURL,
             object : AudioLoadResultHandler {
                 override fun trackLoaded(track: AudioTrack) {
-                    channel.sendMessage("Adding to queue ${track.info.title}").queue()
+                    OneCommand.handleTrackLoaded(event, track)
 
-                    playTrack(channel.guild, musicManager, track)
+                    playTrack(event.guild, musicManager, track)
                 }
 
                 override fun playlistLoaded(playlist: AudioPlaylist) {
                     val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
 
-                    channel.sendMessage(
-                        "Adding to queue ${firstTrack.info.title} " +
-                            "(first track of playlist ${playlist.name})"
-                    ).queue()
+                    OneCommand.handlePlaylistLoaded(event, playlist)
 
-                    playTrack(channel.guild, musicManager, firstTrack)
+                    playTrack(event.guild, musicManager, firstTrack)
                 }
 
                 override fun noMatches() {
-                    channel.sendMessage("Check the link again ey?").queue()
+                    OneCommand.handleNoMatches(event)
                 }
 
                 override fun loadFailed(exception: FriendlyException) {
-                    channel.sendMessage("LMAO: ${exception.message}")
+                    OneCommand.handleLoadFailed(event, exception)
                 }
             }
         )
@@ -75,6 +74,8 @@ class AudioPlayerManager {
     private fun connectToFirstVoiceChannel(manager: AudioManager) {
         if (!manager.isConnected) {
             manager.openAudioConnection(manager.guild.voiceChannels.first())
+
+            manager.setSelfDeafened(true)
         }
     }
 

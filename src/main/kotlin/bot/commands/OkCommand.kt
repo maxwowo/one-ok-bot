@@ -18,6 +18,6 @@ class OkCommand : Command() {
     override fun execute(event: CommandEvent) {
         audioPlayerManager.skipTrack(event.textChannel)
 
-        event.reply("Skipped")
+        event.message.addReaction("\uD83D\uDC4C").queue()
     }
 }

@@ -2,6 +2,7 @@ package bot.commands
 
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
+import net.dv8tion.jda.api.EmbedBuilder
 
 /**
  * Class that represents !slave command
@@ -15,6 +16,7 @@ class SlaveCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
+        val builder = EmbedBuilder()
         val bots = ArrayList<String>()
 
         for (member in event.guild.members) {
@@ -26,9 +28,11 @@ class SlaveCommand : Command() {
         }
 
         if (bots.isEmpty()) {
-            event.reply("No slaves to be found")
+            builder.setDescription("No slaves to be found")
         } else {
-            event.reply(bots.joinToString(" "))
+            builder.setDescription(bots.joinToString(" "))
         }
+
+        event.reply(builder.build())
     }
 }
