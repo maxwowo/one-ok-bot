@@ -23,7 +23,7 @@ class OneCommand : Command() {
     }
 
     companion object {
-        fun handleTrackLoaded(event:CommandEvent, track: AudioTrack) {
+        fun handleTrackLoaded(event: CommandEvent, track: AudioTrack) {
             val builder = EmbedBuilder()
 
             builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
@@ -33,7 +33,7 @@ class OneCommand : Command() {
             event.reply(builder.build())
         }
 
-        fun handlePlaylistLoaded(event:CommandEvent, playlist: AudioPlaylist) {
+        fun handlePlaylistLoaded(event: CommandEvent, playlist: AudioPlaylist) {
             val builder = EmbedBuilder()
 
             builder.setDescription("Queued **${playlist.tracks.size}** tracks")
