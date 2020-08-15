@@ -7,9 +7,9 @@ import com.jagrosh.jdautilities.command.CommandEvent
 /**
  * Class that represents !ok command
  *
- * Skips a song
+ * Skips the current song in the queue
  */
-class SkipCommand : Command() {
+class OkCommand : Command() {
     init {
         name = "ok"
         help = "Skips a song"
@@ -18,6 +18,6 @@ class SkipCommand : Command() {
     override fun execute(event: CommandEvent) {
         audioPlayerManager.skipTrack(event.textChannel)
 
-        event.reply("\uD83C\uDFB8 Skipped")
+        event.reply("Skipped")
     }
 }

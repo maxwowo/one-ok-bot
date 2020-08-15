@@ -1,12 +1,15 @@
 package bot
 
 import bot.commands.BruhCommand
-import bot.commands.PlayCommand
-import bot.commands.SkipCommand
+import bot.commands.OkCommand
+import bot.commands.OneCommand
+import bot.commands.SlaveCommand
 import bot.configurations.configuration
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.requests.GatewayIntent
+import net.dv8tion.jda.api.utils.ChunkingFilter
 
 /**
  * Class that represents the bot
@@ -28,16 +31,23 @@ class Bot {
             addCommands(
                 /* Command to get the bot to reply "Bruh" back to you */
                 BruhCommand(),
+
                 /* Command to play a song */
-                PlayCommand(),
+                OneCommand(),
+
                 /* Command to skip a song */
-                SkipCommand()
+                OkCommand(),
+
+                /* Tags other music bots if present */
+                SlaveCommand()
             )
         }
 
         /* Builder setup */
         with(builder) {
             addEventListeners(waiter, client.build())
+            setChunkingFilter(ChunkingFilter.ALL)
+            enableIntents(GatewayIntent.GUILD_MEMBERS)
             build()
         }
     }

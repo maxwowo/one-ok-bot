@@ -9,7 +9,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
  *
  * Plays a song
  */
-class PlayCommand : Command() {
+class OneCommand : Command() {
     init {
         name = "one"
         help = "Plays a song"
@@ -18,7 +18,7 @@ class PlayCommand : Command() {
 
     override fun execute(event: CommandEvent) {
         if (event.args.isEmpty()) {
-            event.replyWarning("\uD83C\uDFB8 Give me the song URL dummy")
+            event.replyWarning("Give me the song URL dummy")
         } else {
             audioPlayerManager.loadAndPlay(event.textChannel, event.args.trim())
         }

@@ -30,7 +30,7 @@ class AudioPlayerManager {
             musicManager, trackURL,
             object : AudioLoadResultHandler {
                 override fun trackLoaded(track: AudioTrack) {
-                    channel.sendMessage("\uD83C\uDFB8 Adding to queue ${track.info.title}").queue()
+                    channel.sendMessage("Adding to queue ${track.info.title}").queue()
 
                     playTrack(channel.guild, musicManager, track)
                 }
@@ -39,7 +39,7 @@ class AudioPlayerManager {
                     val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
 
                     channel.sendMessage(
-                        "\uD83C\uDFB8 Adding to queue ${firstTrack.info.title} " +
+                        "Adding to queue ${firstTrack.info.title} " +
                             "(first track of playlist ${playlist.name})"
                     ).queue()
 
@@ -47,11 +47,11 @@ class AudioPlayerManager {
                 }
 
                 override fun noMatches() {
-                    channel.sendMessage("\uD83C\uDFB8 Check the link again ey?").queue()
+                    channel.sendMessage("Check the link again ey?").queue()
                 }
 
                 override fun loadFailed(exception: FriendlyException) {
-                    channel.sendMessage("\uD83C\uDFB8 LMAO: ${exception.message}")
+                    channel.sendMessage("LMAO: ${exception.message}")
                 }
             }
         )
