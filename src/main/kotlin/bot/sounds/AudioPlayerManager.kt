@@ -1,6 +1,6 @@
 package bot.sounds
 
-import bot.handlers.LoudAudioLoadHandler
+import bot.handlers.GeneralAudioLoadHandler
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager
@@ -26,7 +26,7 @@ class AudioPlayerManager {
         val musicManager = findGuildMusicManager(event.guild)
 
         playerManager.loadItemOrdered(
-            musicManager, trackURL, LoudAudioLoadHandler(event)
+            musicManager, trackURL, GeneralAudioLoadHandler(event)
         )
     }
 

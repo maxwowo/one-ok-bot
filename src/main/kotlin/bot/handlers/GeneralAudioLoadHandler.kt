@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
 import java.time.Instant
 
-class LoudAudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
+class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
     private val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
 
     override fun trackLoaded(track: AudioTrack) {
