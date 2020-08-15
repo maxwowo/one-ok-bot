@@ -3,6 +3,7 @@ package bot
 import bot.commands.BruhCommand
 import bot.commands.OkCommand
 import bot.commands.OneCommand
+import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.configurations.configuration
 import com.jagrosh.jdautilities.command.CommandClientBuilder
@@ -37,8 +38,11 @@ class Bot {
                 /* Command to skip a song */
                 OkCommand(),
 
-                /* Tags other music bots if present */
-                SlaveCommand()
+                /* Command to tag the other music bots if present */
+                SlaveCommand(),
+
+                /* Command to get the bot to reply with Patrick Bateman's skincare routine */
+                SkincareCommand()
             )
         }
 
