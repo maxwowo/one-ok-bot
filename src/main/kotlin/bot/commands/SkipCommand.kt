@@ -11,8 +11,8 @@ import com.jagrosh.jdautilities.command.CommandEvent
  */
 class SkipCommand : Command() {
     init {
-        name = "play"
-        help = "Plays a song"
+        name = "skip"
+        help = "Skips a song"
     }
 
     override fun execute(event: CommandEvent) {
