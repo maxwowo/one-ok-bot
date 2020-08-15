@@ -5,13 +5,13 @@ import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
 
 /**
- * Class that represents !play command
+ * Class that represents !ok command
  *
  * Skips a song
  */
 class SkipCommand : Command() {
     init {
-        name = "skip"
+        name = "ok"
         help = "Skips a song"
     }
 

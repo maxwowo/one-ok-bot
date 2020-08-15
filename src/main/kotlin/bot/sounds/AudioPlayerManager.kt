@@ -87,8 +87,6 @@ class AudioPlayerManager {
     fun skipTrack(channel: TextChannel) {
         val musicManager = findGuildMusicManager(channel.guild)
         musicManager.scheduler.nextTrack()
-
-        channel.sendMessage("\uD83C\uDFB8 Skipped to next track \uD83D\uDD25 ").queue()
     }
 }
 

@@ -5,13 +5,13 @@ import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
 
 /**
- * Class that represents !play command
+ * Class that represents !one command
  *
  * Plays a song
  */
 class PlayCommand : Command() {
     init {
-        name = "play"
+        name = "one"
         help = "Plays a song"
         arguments = "<track URL>"
     }
