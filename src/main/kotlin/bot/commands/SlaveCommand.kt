@@ -2,6 +2,7 @@ package bot.commands
 
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
+import net.dv8tion.jda.api.EmbedBuilder
 
 /**
  * Class that represents !slave command
@@ -21,14 +22,14 @@ class SlaveCommand : Command() {
             val user = member.user
 
             if (user.isBot && user != event.jda.selfUser) {
-                bots.add(member.id)
+                bots.add(user.asMention)
             }
         }
 
         if (bots.isEmpty()) {
             event.reply("No slaves to be found")
         } else {
-            event.reply(bots.joinToString(" ") { "<@$it>" })
+            event.reply(bots.joinToString(" "))
         }
     }
 }
