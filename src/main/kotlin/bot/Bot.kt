@@ -6,6 +6,7 @@ import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.configurations.configuration
+import bot.listeners.MessageListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
@@ -48,7 +49,7 @@ class Bot {
 
         /* Builder setup */
         with(builder) {
-            addEventListeners(waiter, client.build())
+            addEventListeners(waiter, client.build(), MessageListener())
             setChunkingFilter(ChunkingFilter.ALL)
             enableIntents(GatewayIntent.GUILD_MEMBERS)
             build()
