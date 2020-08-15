@@ -26,29 +26,33 @@ class AudioPlayerManager {
     fun loadAndPlay(channel: TextChannel, trackURL: String) {
         val musicManager = findGuildMusicManager(channel.guild)
 
-        playerManager.loadItemOrdered(musicManager, trackURL, object : AudioLoadResultHandler {
-            override fun trackLoaded(track: AudioTrack) {
-                channel.sendMessage("\uD83C\uDFB8 Adding to queue ${track.info.title}").queue()
+        playerManager.loadItemOrdered(
+            musicManager, trackURL,
+            object : AudioLoadResultHandler {
+                override fun trackLoaded(track: AudioTrack) {
+                    channel.sendMessage("\uD83C\uDFB8 Adding to queue ${track.info.title}").queue()
 
-                playTrack(channel.guild, musicManager, track)
+                    playTrack(channel.guild, musicManager, track)
+                }
+
+                override fun playlistLoaded(playlist: AudioPlaylist) {
+                    val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
+
+                    channel.sendMessage("\uD83C\uDFB8 Adding to queue ${firstTrack.info.title} " +
+                        "(first track of playlist ${playlist.name})").queue()
+
+                    playTrack(channel.guild, musicManager, firstTrack)
+                }
+
+                override fun noMatches() {
+                    channel.sendMessage("\uD83C\uDFB8 Check the link again ey?").queue()
+                }
+
+                override fun loadFailed(exception: FriendlyException) {
+                    channel.sendMessage("\uD83C\uDFB8 LMAO: ${exception.message}")
+                }
             }
-
-            override fun playlistLoaded(playlist: AudioPlaylist) {
-                val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
-
-                channel.sendMessage("\uD83C\uDFB8 Adding to queue ${firstTrack.info.title} (first track of playlist ${playlist.name})").queue()
-
-                playTrack(channel.guild, musicManager, firstTrack)
-            }
-
-            override fun noMatches() {
-                channel.sendMessage("\uD83C\uDFB8 Check the link again ey?").queue()
-            }
-
-            override fun loadFailed(exception: FriendlyException) {
-                channel.sendMessage("\uD83C\uDFB8 LMAO: ${exception.message}")
-            }
-        })
+        )
     }
 
     @Synchronized
