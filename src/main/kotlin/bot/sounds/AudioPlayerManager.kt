@@ -23,10 +23,10 @@ class AudioPlayerManager {
         AudioSourceManagers.registerLocalSource(playerManager)
     }
 
-    fun loadAndPlay(channel: TextChannel, trackUrl: String) {
+    fun loadAndPlay(channel: TextChannel, trackURL: String) {
         val musicManager = findGuildMusicManager(channel.guild)
 
-        playerManager.loadItemOrdered(musicManager, trackUrl, object : AudioLoadResultHandler {
+        playerManager.loadItemOrdered(musicManager, trackURL, object : AudioLoadResultHandler {
             override fun trackLoaded(track: AudioTrack) {
                 channel.sendMessage("\uD83C\uDFB8 Adding to queue ${track.info.title}").queue()
 
@@ -85,3 +85,5 @@ class AudioPlayerManager {
         channel.sendMessage("\uD83C\uDFB8 Skipped to next track \uD83D\uDD25 ").queue()
     }
 }
+
+val audioPlayerManager = AudioPlayerManager()

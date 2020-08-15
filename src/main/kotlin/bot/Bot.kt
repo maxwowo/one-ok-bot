@@ -1,7 +1,9 @@
 package bot
 
 import bot.commands.BruhCommand
+import bot.commands.PlayCommand
 import bot.configurations.configuration
+import bot.sounds.AudioPlayerManager
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
@@ -25,7 +27,9 @@ class Bot {
 
             addCommands(
                 /* Command to get the bot to reply "Bruh" back to you */
-                BruhCommand()
+                BruhCommand(),
+                /* Command to play a song */
+                PlayCommand()
             )
         }
 
