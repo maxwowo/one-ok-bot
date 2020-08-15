@@ -10,7 +10,7 @@ In order to use One Ok Bot you need to first [invite](https://discord.com/api/oa
 
 ## Commands
 
-- `!bruh` - Says bruh to you
+- `!bruh` - Greets you
 - `!slave` - Tags other music bots if present
 - `!one <Youtube URL>` - Plays a song
 - `!ok` - Skips the current song in the queue

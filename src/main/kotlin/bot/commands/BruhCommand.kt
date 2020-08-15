@@ -11,7 +11,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 class BruhCommand : Command() {
     init {
         name = "bruh"
-        help = "Says bruh to you"
+        help = "Greets you"
     }
 
     override fun execute(event: CommandEvent) {
