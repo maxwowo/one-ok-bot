@@ -3,6 +3,7 @@ package bot.commands
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
+import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack
@@ -22,8 +23,10 @@ class OneCommand : Command() {
         arguments = "<Youtube URL>"
     }
 
-    companion object {
-        fun handleTrackLoaded(event: CommandEvent, track: AudioTrack) {
+    class LoadResultHandler(private val event: CommandEvent) : AudioLoadResultHandler {
+        private val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
+
+        override fun trackLoaded(track: AudioTrack) {
             val builder = EmbedBuilder()
 
             builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
@@ -31,19 +34,24 @@ class OneCommand : Command() {
             builder.setTimestamp(Instant.now())
 
             event.reply(builder.build())
+
+            audioPlayerManager.playTrack(event.guild, musicManager, track)
         }
 
-        fun handlePlaylistLoaded(event: CommandEvent, playlist: AudioPlaylist) {
+        override fun playlistLoaded(playlist: AudioPlaylist) {
             val builder = EmbedBuilder()
+            val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
 
             builder.setDescription("Queued **${playlist.tracks.size}** tracks")
             builder.setFooter(event.author.name)
             builder.setTimestamp(Instant.now())
 
             event.reply(builder.build())
+
+            audioPlayerManager.playTrack(event.guild, musicManager, firstTrack)
         }
 
-        fun handleNoMatches(event: CommandEvent) {
+        override fun noMatches() {
             val builder = EmbedBuilder()
 
             builder.setDescription("Check the link again ey?")
@@ -52,7 +60,7 @@ class OneCommand : Command() {
             event.reply(builder.build())
         }
 
-        fun handleLoadFailed(event: CommandEvent, exception: FriendlyException) {
+        override fun loadFailed(exception: FriendlyException) {
             val builder = EmbedBuilder()
 
             builder.setDescription("LMAO: ${exception.message}")
@@ -63,8 +71,11 @@ class OneCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
+        val builder = EmbedBuilder()
+
         if (event.args.isEmpty()) {
-            event.replyWarning("Give me the song URL dummy")
+            builder.setDescription("Give me the song URL dummy")
+            builder.setColor(Color.RED)
         } else {
             audioPlayerManager.loadAndPlay(event, event.args.trim())
         }
