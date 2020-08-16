@@ -13,7 +13,7 @@ In order to use One Ok Bot you need to first [invite](https://discord.com/api/oa
 ### Random
 
 - `!bruh` - Greets you
-- `!slave` - Tags other music bots if present
+- `!slave` - Tags other bots if present
 - `!skincare` - Offers you some helpful skincare tips
 
 ### Music
