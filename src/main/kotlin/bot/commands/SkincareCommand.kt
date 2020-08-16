@@ -5,7 +5,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 
 /**
- * Class that represents !skincare command
+ * Class that represents the !skincare command
  *
  * Replies with Patrick Bateman's skincare routine
  */

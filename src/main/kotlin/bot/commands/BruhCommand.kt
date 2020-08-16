@@ -5,7 +5,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 
 /**
- * Class that represents !bruh command
+ * Class that represents the !bruh command
  *
  * Replies "Bruh" back
  */

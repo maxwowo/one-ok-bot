@@ -5,7 +5,7 @@ import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
 
 /**
- * Class that represents !ok command
+ * Class that represents the !ok command
  *
  * Skips the current song in the queue
  */

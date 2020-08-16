@@ -6,7 +6,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 
 /**
- * Class that represents !yeet command
+ * Class that represents the !yeet command
  *
  * Clears the queue
  */

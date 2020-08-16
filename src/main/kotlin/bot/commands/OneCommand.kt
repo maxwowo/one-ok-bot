@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
 
 /**
- * Class that represents !one command
+ * Class that represents the !one command
  *
  * Queues a track
  */

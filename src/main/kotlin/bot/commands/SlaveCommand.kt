@@ -5,7 +5,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 
 /**
- * Class that represents !slave command
+ * Class that represents the !slave command
  *
  * Tags other bots if present
  */

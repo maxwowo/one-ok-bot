@@ -5,7 +5,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 
 /**
- * Class that represents !aight command
+ * Class that represents the !aight command
  *
  * Leaves the voice channel
  */
