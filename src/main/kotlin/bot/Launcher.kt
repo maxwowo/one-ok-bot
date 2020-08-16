@@ -9,5 +9,5 @@ fun main() {
 
     logger.info { "Starting One Ok Bot version ${build.version}." }
 
-    bot.start()
+    bot.run()
 }

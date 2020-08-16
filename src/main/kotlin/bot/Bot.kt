@@ -18,8 +18,8 @@ import net.dv8tion.jda.api.utils.ChunkingFilter
  *
  * Initializes the various JDA factories and runs the bot
  */
-class Bot {
-    fun start() {
+class Bot : Runnable {
+    override fun run() {
         val builder = JDABuilder.createDefault(configuration.token)
         val waiter = EventWaiter()
         val client = CommandClientBuilder()
