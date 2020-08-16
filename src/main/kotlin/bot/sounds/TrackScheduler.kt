@@ -32,6 +32,13 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
         player.startTrack(queue.poll(), false)
     }
 
+    fun shuffle() {
+        val shuffled =queue.shuffled()
+
+        queue.clear()
+        queue.addAll(shuffled)
+    }
+
     fun clear() {
         queue.clear()
         nextTrack()

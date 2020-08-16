@@ -76,6 +76,12 @@ class AudioPlayerManager {
         musicManager.scheduler.nextTrack()
     }
 
+    fun shuffleQueue(channel: TextChannel) {
+        val musicManager = findGuildMusicManager(channel.guild)
+
+        musicManager.scheduler.shuffle()
+    }
+
     fun clearQueue(channel: TextChannel) {
         val musicManager = findGuildMusicManager(channel.guild)
 

@@ -6,6 +6,7 @@ import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
+import bot.commands.EverydayCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
@@ -48,7 +49,10 @@ class Bot : Runnable {
                 SkincareCommand(),
 
                 /* Command to clear the queue */
-                YeetCommand()
+                YeetCommand(),
+
+                /* Command to shuffle the queue */
+                EverydayCommand()
             )
         }
 
