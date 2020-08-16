@@ -1,12 +1,12 @@
 package bot
 
 import bot.commands.BruhCommand
+import bot.commands.EverydayCommand
 import bot.commands.OkCommand
 import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
-import bot.commands.EverydayCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
