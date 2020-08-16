@@ -9,9 +9,10 @@ class MessageListener : ListenerAdapter() {
         val builder = EmbedBuilder()
         val content = event.message.contentRaw.toLowerCase()
 
-        if (event.jda.selfUser in event.message.mentionedUsers) {
+        if (event.author != event.jda.selfUser && event.jda.selfUser in event.message.mentionedUsers) {
             if ("good bot" in content) {
-                builder.setDescription("Damn right I am")
+                builder.setDescription("Damn right I am, why dont you " +
+                    "[chuck me a star](https://github.com/maxwowo/one-ok-bot) huh?")
             } else if ("bad bot" in content) {
                 builder.setDescription(javaClass.getResource("/copypastas/navy_seal.txt").readText())
             }
