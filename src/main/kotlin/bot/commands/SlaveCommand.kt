@@ -18,15 +18,11 @@ class SlaveCommand : Command() {
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
         val slaves = setOf("185306839880040448", "184506248589213696")
-        val mentions = ArrayList<String>()
 
-        for (member in event.guild.members) {
-            val user = member.user
-
-            if (user != event.jda.selfUser && (user.isBot || user.id in slaves)) {
-                mentions.add(user.asMention)
-            }
-        }
+        val mentions = event.guild.members
+            .filter { it.user != event.jda.selfUser && (it.user.isBot || it.user.id in slaves) }
+            .sortedBy { it.user.isBot }
+            .map { it.user.asMention }
 
         if (mentions.isEmpty()) {
             builder.setDescription("No slaves to be found")
