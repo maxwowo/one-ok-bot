@@ -9,6 +9,7 @@ import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
+import bot.listeners.VoiceLeaveListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
@@ -58,7 +59,7 @@ class Bot : Runnable {
 
         /* Builder setup */
         with(builder) {
-            addEventListeners(waiter, client.build(), MessageListener())
+            addEventListeners(waiter, client.build(), MessageListener(), VoiceLeaveListener())
             setChunkingFilter(ChunkingFilter.ALL)
             enableIntents(GatewayIntent.GUILD_MEMBERS)
             build()
