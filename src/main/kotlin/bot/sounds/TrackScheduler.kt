@@ -20,8 +20,12 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
         }
     }
 
-    fun queue(tracks: List<AudioTrack>) {
-        queue.addAll(if (player.startTrack(tracks.first(), true)) tracks.drop(1) else tracks)
+    fun queue(firstTrack: AudioTrack, remainingTracks: List<AudioTrack>) {
+        if (!player.startTrack(firstTrack, true)) {
+            queue.add(firstTrack)
+        }
+
+        queue.addAll(remainingTracks)
     }
 
     fun nextTrack() {

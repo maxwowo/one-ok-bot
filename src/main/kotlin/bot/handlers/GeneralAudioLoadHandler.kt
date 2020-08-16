@@ -26,14 +26,18 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
 
     override fun playlistLoaded(playlist: AudioPlaylist) {
         val builder = EmbedBuilder()
+        val tracks = playlist.tracks
+        val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
+        val firstTrackIndex = playlist.tracks.indexOf(firstTrack)
+        val remainingTracks = tracks.subList(firstTrackIndex + 1, tracks.size) + tracks.subList(0, firstTrackIndex)
 
         builder.setDescription("Queued **${playlist.tracks.size}** tracks")
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 
-        event.reply(builder.build())
+        audioPlayerManager.queueTracks(event.guild, musicManager, firstTrack, remainingTracks)
 
-        audioPlayerManager.queueTracks(event.guild, musicManager, playlist.tracks)
+        event.reply(builder.build())
     }
 
     override fun noMatches() {
