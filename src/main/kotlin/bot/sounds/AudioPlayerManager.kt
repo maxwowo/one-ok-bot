@@ -59,7 +59,12 @@ class AudioPlayerManager {
         musicManager.scheduler.queue(track)
     }
 
-    fun queueTracks(guild: Guild, musicManager: GuildMusicManager, firstTrack: AudioTrack, remainingTracks: List<AudioTrack>) {
+    fun queueTracks(
+        guild: Guild,
+        musicManager: GuildMusicManager,
+        firstTrack: AudioTrack,
+        remainingTracks: List<AudioTrack>
+    ) {
         connectToFirstVoiceChannel(guild.audioManager)
 
         musicManager.scheduler.queue(firstTrack, remainingTracks)
