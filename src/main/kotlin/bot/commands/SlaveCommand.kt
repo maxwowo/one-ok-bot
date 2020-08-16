@@ -22,8 +22,9 @@ class SlaveCommand : Command() {
         for (member in event.guild.members) {
             val user = member.user
 
-            if (user != event.jda.selfUser && (user.isBot || user.id == "644736485412569088")) {
+            if (user != event.jda.selfUser && (user.isBot || user.id == "185306839880040448" || user.id == "184506248589213696")) {
                 mentions.add(user.asMention)
+                mentions.add("( ͡° ͜ʖ ͡°)")
             }
         }
 
