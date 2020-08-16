@@ -18,8 +18,8 @@ class MessageListener : ListenerAdapter() {
             } else if ("bad bot" in content) {
                 builder.setDescription(javaClass.getResource("/copypastas/navy_seal.txt").readText())
             }
-        }
 
-        event.textChannel.sendMessage(builder.build()).queue()
+            event.textChannel.sendMessage(builder.build()).queue()
+        }
     }
 }
