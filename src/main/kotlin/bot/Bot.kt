@@ -5,7 +5,7 @@ import bot.commands.OkCommand
 import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
-import bot.configurations.configuration
+import bot.configurations.configurations
 import bot.listeners.MessageListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
@@ -20,14 +20,14 @@ import net.dv8tion.jda.api.utils.ChunkingFilter
  */
 class Bot : Runnable {
     override fun run() {
-        val builder = JDABuilder.createDefault(configuration.token)
+        val builder = JDABuilder.createDefault(configurations.token)
         val waiter = EventWaiter()
         val client = CommandClientBuilder()
 
         /* Client setup */
         with(client) {
-            setOwnerId(configuration.owner)
-            setPrefix(configuration.prefix)
+            setOwnerId(configurations.owner)
+            setPrefix(configurations.prefix)
 
             addCommands(
                 /* Command to get the bot to reply "Bruh" back to you */

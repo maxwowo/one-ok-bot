@@ -66,4 +66,9 @@ class AudioPlayerManager {
     }
 }
 
+/**
+ * The singleton [AudioPlayerManager]
+ *
+ * You should always use this instead of constructing an instance of [AudioPlayerManager] yourself
+ */
 val audioPlayerManager = AudioPlayerManager()

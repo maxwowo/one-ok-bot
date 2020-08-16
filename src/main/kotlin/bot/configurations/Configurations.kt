@@ -36,4 +36,4 @@ class Configurations {
  *
  * You should always use this instead of constructing an instance of [Configurations] yourself
  */
-val configuration = Configurations()
+val configurations = Configurations()

@@ -28,4 +28,4 @@ class BuildProperties {
  *
  * You should always use this instead of constructing an instance of [BuildProperties] yourself
  */
-val build = BuildProperties().load()
+val buildProperties = BuildProperties().load()
