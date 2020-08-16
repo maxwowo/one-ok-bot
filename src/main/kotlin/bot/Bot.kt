@@ -27,6 +27,7 @@ class Bot : Runnable {
         /* Client setup */
         with(client) {
             setOwnerId(configurations.owner)
+            setHelpWord(configurations.helpCommand)
             setPrefix(configurations.prefix)
 
             addCommands(

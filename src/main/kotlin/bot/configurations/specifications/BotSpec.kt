@@ -16,4 +16,7 @@ object BotSpec : ConfigSpec() {
 
     /* ID of the bot's owner */
     val owner by required<String>(description = "Discord ID of the bot's owner")
+
+    /* Command to ask for help */
+    val helpCommand by required<String>(description = "Command to ask for help")
 }

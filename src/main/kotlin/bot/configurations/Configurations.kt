@@ -29,6 +29,9 @@ class Configurations {
 
     /* ID of the bot's owner */
     val owner: String get() = configurations[BotSpec.owner]
+
+    /* Command to ask for help */
+    val helpCommand: String get() = configurations[BotSpec.helpCommand]
 }
 
 /**
