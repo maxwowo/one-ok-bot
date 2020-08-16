@@ -8,7 +8,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack
 import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
-import java.time.Instant
 
 class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
     private val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
@@ -18,7 +17,7 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
 
         builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
         builder.setFooter(event.author.name)
-        builder.setTimestamp(Instant.now())
+        builder.setTimestamp(event.message.timeCreated)
 
         event.reply(builder.build())
 
@@ -31,7 +30,7 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
 
         builder.setDescription("Queued **${playlist.tracks.size}** tracks")
         builder.setFooter(event.author.name)
-        builder.setTimestamp(Instant.now())
+        builder.setTimestamp(event.message.timeCreated)
 
         event.reply(builder.build())
 
