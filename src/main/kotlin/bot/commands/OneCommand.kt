@@ -27,5 +27,7 @@ class OneCommand : Command() {
         } else {
             audioPlayerManager.loadAndPlay(event, event.args.trim())
         }
+
+        event.reply(builder.build())
     }
 }
