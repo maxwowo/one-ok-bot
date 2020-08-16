@@ -7,6 +7,7 @@ import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
+import bot.commands.AightCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
@@ -53,7 +54,10 @@ class Bot : Runnable {
                 YeetCommand(),
 
                 /* Command to shuffle the queue */
-                EverydayCommand()
+                EverydayCommand(),
+
+                /* Leaves the voice channel */
+                AightCommand()
             )
         }
 

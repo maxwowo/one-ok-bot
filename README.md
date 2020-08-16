@@ -22,3 +22,4 @@ In order to use One Ok Bot you need to first [invite](https://discord.com/api/oa
 - `!ok` - Skips the current song in the queue
 - `!yeet` - Clears the queue
 - `!everyday` - Shuffles the queue
+- `!aight` - Leaves the voice channel
