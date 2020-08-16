@@ -18,5 +18,5 @@ In order to use One Ok Bot you need to first [invite](https://discord.com/api/oa
 
 ### Music
 
-- `!one <Youtube URL>` - Plays a song
+- `!one <Youtube URL>` - Queues a track
 - `!ok` - Skips the current song in the queue

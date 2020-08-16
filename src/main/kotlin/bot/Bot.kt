@@ -5,6 +5,7 @@ import bot.commands.OkCommand
 import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
+import bot.commands.YeetCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
@@ -44,7 +45,10 @@ class Bot : Runnable {
                 SlaveCommand(),
 
                 /* Command to get the bot to reply with Patrick Bateman's skincare routine */
-                SkincareCommand()
+                SkincareCommand(),
+
+                /* Command to clear the queue */
+                YeetCommand()
             )
         }
 

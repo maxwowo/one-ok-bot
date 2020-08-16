@@ -53,16 +53,28 @@ class AudioPlayerManager {
         }
     }
 
-    fun playTrack(guild: Guild, manager: GuildMusicManager, track: AudioTrack) {
+    fun queueTrack(guild: Guild, musicManager: GuildMusicManager, track: AudioTrack) {
         connectToFirstVoiceChannel(guild.audioManager)
 
-        manager.scheduler.queue(track)
+        musicManager.scheduler.queue(track)
+    }
+
+    fun queueTracks(guild: Guild, musicManager: GuildMusicManager, tracks: List<AudioTrack>) {
+        connectToFirstVoiceChannel(guild.audioManager)
+
+        musicManager.scheduler.queue(tracks)
     }
 
     fun skipTrack(channel: TextChannel) {
         val musicManager = findGuildMusicManager(channel.guild)
 
         musicManager.scheduler.nextTrack()
+    }
+
+    fun clearQueue(channel: TextChannel) {
+        val musicManager = findGuildMusicManager(channel.guild)
+
+        musicManager.scheduler.clear()
     }
 }
 

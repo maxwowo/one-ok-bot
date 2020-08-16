@@ -9,12 +9,12 @@ import java.awt.Color
 /**
  * Class that represents !one command
  *
- * Plays a song
+ * Queues a track
  */
 class OneCommand : Command() {
     init {
         name = "one"
-        help = "Plays a song"
+        help = "Queues a track"
         arguments = "<Youtube URL>"
     }
 
@@ -24,10 +24,10 @@ class OneCommand : Command() {
         if (event.args.isEmpty()) {
             builder.setDescription("Give me the song URL dummy")
             builder.setColor(Color.RED)
+
+            event.reply(builder.build())
         } else {
             audioPlayerManager.loadAndPlay(event, event.args.trim())
         }
-
-        event.reply(builder.build())
     }
 }
