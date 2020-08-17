@@ -43,7 +43,7 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
     override fun noMatches() {
         val builder = EmbedBuilder()
 
-        builder.setDescription("Check the link again ey?")
+        builder.setDescription("${event.author.asMention} Check the link again ey?")
         builder.setColor(Color.RED)
 
         event.reply(builder.build())

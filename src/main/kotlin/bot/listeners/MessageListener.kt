@@ -12,10 +12,14 @@ class MessageListener : ListenerAdapter() {
         if (event.author != event.jda.selfUser && event.jda.selfUser in event.message.mentionedUsers) {
             if ("good bot" in content) {
                 builder.setDescription(
-                    "Damn right I am, why dont you [chuck me a star](https://github.com/maxwowo/one-ok-bot) huh?"
+                    "${event.author.asMention} Damn right I am, why dont you " +
+                        "[chuck me a star](https://github.com/maxwowo/one-ok-bot) huh?"
                 )
             } else if ("bad bot" in content) {
-                builder.setDescription(javaClass.getResource("/copypastas/navy_seal.txt").readText())
+                builder.setDescription(
+                    "${event.author.asMention} " +
+                        javaClass.getResource("/copypastas/navy_seal.txt").readText()
+                )
             }
 
             event.textChannel.sendMessage(builder.build()).queue()
