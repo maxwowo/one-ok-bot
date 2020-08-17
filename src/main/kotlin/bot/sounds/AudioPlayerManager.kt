@@ -1,5 +1,6 @@
 package bot.sounds
 
+import bot.configurations.BuildProperties
 import bot.handlers.GeneralAudioLoadHandler
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
@@ -92,6 +93,6 @@ class AudioPlayerManager {
 /**
  * The singleton [AudioPlayerManager]
  *
- * You should always use this instead of constructing an instance of [AudioPlayerManager] yourself
+ * This should always be used instead of constructing an instance of [AudioPlayerManager] manually
  */
 val audioPlayerManager = AudioPlayerManager()

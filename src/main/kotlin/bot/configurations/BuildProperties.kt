@@ -26,6 +26,6 @@ class BuildProperties {
 /**
  * The singleton [BuildProperties]
  *
- * You should always use this instead of constructing an instance of [BuildProperties] yourself
+ * This should always be used instead of constructing an instance of [BuildProperties] manually
  */
 val buildProperties = BuildProperties().load()

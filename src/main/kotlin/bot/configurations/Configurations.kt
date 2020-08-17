@@ -37,6 +37,6 @@ class Configurations {
 /**
  * The singleton [Configurations]
  *
- * You should always use this instead of constructing an instance of [Configurations] yourself
+ * This should always be used instead of constructing an instance of [Configurations] manually
  */
 val configurations = Configurations()
