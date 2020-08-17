@@ -6,6 +6,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter
 
 class VoiceLeaveListener : ListenerAdapter() {
     override fun onGuildVoiceLeave(event: GuildVoiceLeaveEvent) {
-        audioPlayerManager.clearQueue(event.guild)
+        if (event.member.user == event.jda.selfUser) {
+            audioPlayerManager.clearQueue(event.guild)
+        }
     }
 }
