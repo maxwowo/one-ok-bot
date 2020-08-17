@@ -1,6 +1,6 @@
 # One Ok Bot
 
-![CI](https://github.com/maxwowo/one-ok-bot/workflows/Build/badge.svg)
+![build](https://github.com/maxwowo/one-ok-bot/workflows/build/badge.svg) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=maxwowo_one-ok-bot&metric=alert_status)](https://sonarcloud.io/dashboard?id=maxwowo_one-ok-bot)
 
 Discord bot that only plays One Ok Rock songs.
 
