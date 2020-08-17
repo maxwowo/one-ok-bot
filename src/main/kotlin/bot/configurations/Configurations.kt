@@ -1,5 +1,6 @@
 package bot.configurations
 
+import bot.configurations.specifications.AudioSpec
 import bot.configurations.specifications.BotSpec
 import com.uchuhimo.konf.Config
 import com.uchuhimo.konf.Feature
@@ -16,7 +17,7 @@ import com.uchuhimo.konf.source.yaml
  */
 class Configurations {
     /* Configuration map */
-    private var configurations = Config { addSpec(BotSpec); }
+    private var configurations = Config { addSpec(BotSpec); addSpec(AudioSpec) ; }
         .from.enabled(Feature.FAIL_ON_UNKNOWN_PATH).yaml.resource("default.yml")
         .from.env()
         .from.systemProperties()
@@ -32,6 +33,9 @@ class Configurations {
 
     /* Command to ask for help */
     val helpCommand: String get() = configurations[BotSpec.helpCommand]
+
+    /* Link to the lo-fi beats stream */
+    val lofiURL: String get() = configurations[AudioSpec.lofiURL]
 }
 
 /**

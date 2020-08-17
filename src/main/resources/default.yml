@@ -2,3 +2,6 @@ bot:
   prefix: "!"
   owner: "142918778232111104"
   helpCommand: "huh"
+
+audio:
+  lofiURL: "https://youtu.be/5qap5aO4i9A"

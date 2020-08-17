@@ -3,7 +3,7 @@ package bot.configurations.specifications
 import com.uchuhimo.konf.ConfigSpec
 
 /**
- * A class which stores the bot configuration
+ * A class which stores the bot specifications
  *
  * This is used by Konf and will not be accessed externally
  */

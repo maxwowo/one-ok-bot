@@ -8,6 +8,7 @@ import bot.commands.OneCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
+import bot.commands.LofiCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
@@ -56,8 +57,11 @@ class Bot : Runnable {
                 /* Command to shuffle the queue */
                 EverydayCommand(),
 
-                /* Leaves the voice channel */
-                AightCommand()
+                /* Command to leave the voice channel */
+                AightCommand(),
+
+                /* Command to play the lo-fi stream */
+                LofiCommand()
             )
         }
 
