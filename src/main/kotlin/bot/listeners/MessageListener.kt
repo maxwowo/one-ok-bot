@@ -16,7 +16,7 @@ class MessageListener : ListenerAdapter() {
                 )
             } else if ("bad bot" in content) {
                 builder.setDescription(
-                    "${event.author.asMention} ${javaClass.getResource("/copypastas/navy_seal.txt").readText()}"
+                    javaClass.getResource("/copypastas/navy_seal.txt").readText()
                 )
             }
 
