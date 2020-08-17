@@ -45,27 +45,18 @@ class AudioPlayerManager {
         return musicManager
     }
 
-    private fun connectToFirstVoiceChannel(manager: AudioManager) {
-        if (!manager.isConnected) {
-            manager.openAudioConnection(manager.guild.voiceChannels.first())
-
-            manager.isSelfDeafened = true
-        }
-    }
-
-    fun queueTrack(guild: Guild, musicManager: GuildMusicManager, track: AudioTrack) {
-        connectToFirstVoiceChannel(guild.audioManager)
+    fun queueTrack(guild: Guild, track: AudioTrack) {
+        val musicManager = findGuildMusicManager(guild)
 
         musicManager.scheduler.queue(track)
     }
 
     fun queueTracks(
         guild: Guild,
-        musicManager: GuildMusicManager,
         firstTrack: AudioTrack,
         remainingTracks: List<AudioTrack>
     ) {
-        connectToFirstVoiceChannel(guild.audioManager)
+        val musicManager = findGuildMusicManager(guild)
 
         musicManager.scheduler.queue(firstTrack, remainingTracks)
     }
