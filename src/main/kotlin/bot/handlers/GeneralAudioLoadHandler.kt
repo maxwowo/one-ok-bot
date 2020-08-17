@@ -1,6 +1,6 @@
 package bot.handlers
 
-import bot.exceptions.IssuerNotConnectedToVoiceChannel
+import bot.exceptions.AuthorNotConnectedToVoiceChannelException
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler
@@ -13,12 +13,12 @@ import java.awt.Color
 class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
     private fun connectToVoiceChannel() {
         if (!event.guild.audioManager.isConnected) {
-            val issuer = event.author
+            val author = event.author
             val audioManager = event.guild.audioManager
             val voiceChannel = event.guild.voiceChannels.find {
                 channel ->
-                issuer in channel.members.map { it.user }
-            } ?: throw IssuerNotConnectedToVoiceChannel(issuer)
+                author in channel.members.map { it.user }
+            } ?: throw AuthorNotConnectedToVoiceChannelException(author)
 
             audioManager.openAudioConnection(voiceChannel)
             audioManager.isSelfDeafened = true
@@ -36,7 +36,7 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
             connectToVoiceChannel()
 
             audioPlayerManager.queueTrack(event.guild, track)
-        } catch (exception: IssuerNotConnectedToVoiceChannel) {
+        } catch (exception: AuthorNotConnectedToVoiceChannelException) {
             builder.clear()
             builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
             builder.setColor(Color.RED)
@@ -60,7 +60,7 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
             connectToVoiceChannel()
 
             audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
-        } catch (exception: IssuerNotConnectedToVoiceChannel) {
+        } catch (exception: AuthorNotConnectedToVoiceChannelException) {
             builder.clear()
             builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
             builder.setColor(Color.RED)
