@@ -22,7 +22,7 @@ class OneCommand : Command() {
         val builder = EmbedBuilder()
 
         if (event.args.isEmpty()) {
-            builder.setDescription("Give me the song URL dummy")
+            builder.setDescription("${event.author.asMention} Give me the song URL dummy")
             builder.setColor(Color.RED)
 
             event.reply(builder.build())
