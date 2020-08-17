@@ -1,6 +1,5 @@
 package bot.sounds
 
-import bot.configurations.BuildProperties
 import bot.handlers.GeneralAudioLoadHandler
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
