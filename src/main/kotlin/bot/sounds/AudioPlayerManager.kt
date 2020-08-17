@@ -82,8 +82,8 @@ class AudioPlayerManager {
         musicManager.scheduler.shuffle()
     }
 
-    fun clearQueue(channel: TextChannel) {
-        val musicManager = findGuildMusicManager(channel.guild)
+    fun clearQueue(guild: Guild) {
+        val musicManager = findGuildMusicManager(guild)
 
         musicManager.scheduler.clear()
     }

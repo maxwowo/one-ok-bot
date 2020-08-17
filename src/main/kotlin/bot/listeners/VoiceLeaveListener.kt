@@ -6,8 +6,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter
 
 class VoiceLeaveListener : ListenerAdapter() {
     override fun onGuildVoiceLeave(event: GuildVoiceLeaveEvent) {
-        val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
-
-        musicManager.scheduler.clear()
+        audioPlayerManager.clearQueue(event.guild)
     }
 }

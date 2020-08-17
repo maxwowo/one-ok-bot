@@ -17,7 +17,7 @@ class LofiCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
-        audioPlayerManager.clearQueue(event.textChannel)
+        audioPlayerManager.clearQueue(event.guild)
         audioPlayerManager.loadAndPlay(event, configurations.lofiURL)
     }
 }

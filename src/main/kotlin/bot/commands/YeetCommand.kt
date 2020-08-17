@@ -23,7 +23,7 @@ class YeetCommand : Command() {
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 
-        audioPlayerManager.clearQueue(event.textChannel)
+        audioPlayerManager.clearQueue(event.guild)
 
         event.reply(builder.build())
     }
