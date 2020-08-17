@@ -8,7 +8,6 @@ import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.entities.TextChannel
-import net.dv8tion.jda.api.managers.AudioManager
 
 class AudioPlayerManager {
     private val playerManager: AudioPlayerManager

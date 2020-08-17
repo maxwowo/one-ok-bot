@@ -15,7 +15,10 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
         if (!event.guild.audioManager.isConnected) {
             val issuer = event.author
             val audioManager = event.guild.audioManager
-            val voiceChannel = event.guild.voiceChannels.find { channel -> issuer in channel.members.map { it.user } } ?: throw IssuerNotConnectedToVoiceChannel(issuer)
+            val voiceChannel = event.guild.voiceChannels.find {
+                channel ->
+                issuer in channel.members.map { it.user }
+            } ?: throw IssuerNotConnectedToVoiceChannel(issuer)
 
             audioManager.openAudioConnection(voiceChannel)
             audioManager.isSelfDeafened = true
@@ -57,7 +60,7 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
             connectToVoiceChannel()
 
             audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
-        } catch(exception: IssuerNotConnectedToVoiceChannel) {
+        } catch (exception: IssuerNotConnectedToVoiceChannel) {
             builder.clear()
             builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
             builder.setColor(Color.RED)
