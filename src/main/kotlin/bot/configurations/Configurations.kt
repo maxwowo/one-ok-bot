@@ -36,6 +36,9 @@ class Configurations {
 
     /* Link to the lo-fi beats stream */
     val lofiURL: String get() = configurations[AudioSpec.lofiURL]
+
+    /* Link to a One Ok Rock playlist */
+    val rockURL: String get() = configurations[AudioSpec.rockURL]
 }
 
 /**

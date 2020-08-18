@@ -1,14 +1,6 @@
 package bot
 
-import bot.commands.AightCommand
-import bot.commands.BruhCommand
-import bot.commands.EverydayCommand
-import bot.commands.LofiCommand
-import bot.commands.OkCommand
-import bot.commands.OneCommand
-import bot.commands.SkincareCommand
-import bot.commands.SlaveCommand
-import bot.commands.YeetCommand
+import bot.commands.*
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
@@ -44,6 +36,9 @@ class Bot : Runnable {
 
                 /* Command to skip a song */
                 OkCommand(),
+
+                /* Command to play One Ok Rock songs */
+                RockCommand(),
 
                 /* Command to tag the other music bots if present */
                 SlaveCommand(),
