@@ -28,11 +28,11 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
     override fun trackLoaded(track: AudioTrack) {
         val builder = EmbedBuilder()
 
-        try {
-            builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
-            builder.setFooter(event.author.name)
-            builder.setTimestamp(event.message.timeCreated)
+        builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
+        builder.setFooter(event.author.name)
+        builder.setTimestamp(event.message.timeCreated)
 
+        try {
             connectToVoiceChannel()
 
             audioPlayerManager.queueTrack(event.guild, track)
@@ -52,11 +52,11 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
         val firstTrackIndex = playlist.tracks.indexOf(firstTrack)
         val remainingTracks = tracks.subList(firstTrackIndex + 1, tracks.size) + tracks.subList(0, firstTrackIndex)
 
-        try {
-            builder.setDescription("Queued **${playlist.tracks.size}** tracks")
-            builder.setFooter(event.author.name)
-            builder.setTimestamp(event.message.timeCreated)
+        builder.setDescription("Queued **${playlist.tracks.size}** tracks")
+        builder.setFooter(event.author.name)
+        builder.setTimestamp(event.message.timeCreated)
 
+        try {
             connectToVoiceChannel()
 
             audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
