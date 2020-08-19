@@ -20,8 +20,8 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
                 author in channel.members.map { it.user }
             } ?: throw AuthorNotConnectedToVoiceChannelException(author)
 
-            audioManager.openAudioConnection(voiceChannel)
             audioManager.isSelfDeafened = true
+            audioManager.openAudioConnection(voiceChannel)
         }
     }
 
