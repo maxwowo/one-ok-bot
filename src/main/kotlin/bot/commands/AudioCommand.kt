@@ -7,8 +7,7 @@ import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
 
 abstract class AudioCommand : Command() {
-    abstract fun handleQueueEmpty(event: CommandEvent)
-    abstract fun handleCommand(event: CommandEvent)
+    abstract fun executeCommand(event: CommandEvent)
 
     override fun execute(event: CommandEvent) {
         val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
@@ -16,9 +15,15 @@ abstract class AudioCommand : Command() {
 
         if (event.guild.audioManager.isConnected) {
             if (scheduler.isEmpty()) {
-                handleQueueEmpty(event)
+                val builder = EmbedBuilder()
+
+                builder.setDescription("${event.author.asMention} Bro the queue is empty")
+                builder.setColor(Color.RED)
+                builder.setTimestamp(event.message.timeCreated)
+
+                event.reply(builder.build())
             } else {
-                handleCommand(event)
+                executeCommand(event)
             }
         } else {
             val builder = EmbedBuilder()
