@@ -12,7 +12,7 @@ class LofiAudioLoadHandler(private val event: CommandEvent) : QuietAudioLoadHand
 
             connectToVoiceChannel()
 
-            builder.setDescription("Good choice")
+            builder.setDescription("Good taste")
             builder.setFooter(event.author.name)
             builder.setTimestamp(event.message.timeCreated)
 

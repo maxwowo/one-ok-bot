@@ -11,43 +11,32 @@ import java.awt.Color
  *
  * Shuffles the queue
  */
-class EverydayCommand : Command() {
+class EverydayCommand : AudioCommand() {
     init {
         name = "everyday"
         help = "Shuffles the queue"
     }
 
-    override fun execute(event: CommandEvent) {
+    override fun handleQueueEmpty(event: CommandEvent) {
+        val builder = EmbedBuilder()
+
+        builder.setDescription("${event.author.asMention} Bro the queue is empty")
+        builder.setColor(Color.RED)
+        builder.setTimestamp(event.message.timeCreated)
+
+        event.reply(builder.build())
+    }
+
+    override fun handleCommand(event: CommandEvent) {
+        val builder = EmbedBuilder()
         val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
-        val scheduler = musicManager.scheduler
 
-        if (event.guild.audioManager.isConnected) {
-            if (scheduler.isEmpty()) {
-                val builder = EmbedBuilder()
+        builder.setDescription("I'm shufflin'")
+        builder.setFooter(event.author.name)
+        builder.setTimestamp(event.message.timeCreated)
 
-                builder.setDescription("${event.author.asMention} Bro the queue is empty")
-                builder.setColor(Color.RED)
-                builder.setTimestamp(event.message.timeCreated)
+        musicManager.scheduler.shuffle()
 
-                event.reply(builder.build())
-            } else {
-                val builder = EmbedBuilder()
-
-                builder.setDescription("I'm shufflin'")
-                builder.setFooter(event.author.name)
-                builder.setTimestamp(event.message.timeCreated)
-
-                musicManager.scheduler.shuffle()
-
-                event.reply(builder.build())
-            }
-        } else {
-            val builder = EmbedBuilder()
-
-            builder.setDescription("${event.author.asMention} Bro I'm not even in a voice channel")
-            builder.setColor(Color.RED)
-
-            event.reply(builder.build())
-        }
+        event.reply(builder.build())
     }
 }
