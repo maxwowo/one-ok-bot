@@ -13,4 +13,7 @@ object AudioSpec : ConfigSpec() {
 
     /* Link to a One Ok Rock playlist */
     val rockURL by required<String>(description = "Link to a One Ok Rock playlist")
+
+    /* Link to No Scared */
+    val noScaredURL by required<String>(description = "Link to No Scared")
 }

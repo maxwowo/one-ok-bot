@@ -1,29 +1,31 @@
 package bot.commands
 
+import bot.configurations.configurations
+import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
-import java.time.Instant
 
 /**
- * Class that represents the !aight command
+ * Class that represents the !lofi command
  *
- * Leaves the voice channel
+ * Clears the queue and plays No Scared
  */
-class AightCommand : Command() {
+class MoreCommand : Command() {
     init {
-        name = "aight"
-        help = "Leaves the voice channel"
+        name = "more"
+        help = "GIVE ME MOOOORE"
     }
 
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
 
-        builder.setDescription("Imma head out")
+        builder.setDescription("GIVE ME MOOOORE")
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 
-        event.guild.audioManager.closeAudioConnection()
+        audioPlayerManager.clearQueue(event.guild)
+        audioPlayerManager.loadAndPlay(event, configurations.noScaredURL)
 
         event.reply(builder.build())
     }

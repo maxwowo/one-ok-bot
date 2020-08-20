@@ -10,6 +10,7 @@ import bot.commands.RockCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
+import bot.commands.MoreCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
@@ -40,10 +41,10 @@ class Bot : Runnable {
                 /* Command to get the bot to reply "Bruh" back to you */
                 BruhCommand(),
 
-                /* Command to play a song */
+                /* Command to play a track */
                 OneCommand(),
 
-                /* Command to skip a song */
+                /* Command to skip the current track */
                 OkCommand(),
 
                 /* Command to play One Ok Rock songs */
@@ -65,7 +66,10 @@ class Bot : Runnable {
                 AightCommand(),
 
                 /* Command to play the lo-fi stream */
-                LofiCommand()
+                LofiCommand(),
+
+                /* Command to clear the queue and play No Scared */
+                MoreCommand()
             )
         }
 

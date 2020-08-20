@@ -39,6 +39,9 @@ class Configurations {
 
     /* Link to a One Ok Rock playlist */
     val rockURL: String get() = configurations[AudioSpec.rockURL]
+
+    /* Link to No Scared */
+    val noScaredURL : String get() = configurations[AudioSpec.noScaredURL]
 }
 
 /**
