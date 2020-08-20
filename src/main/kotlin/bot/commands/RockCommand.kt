@@ -1,7 +1,7 @@
 package bot.commands
 
 import bot.configurations.configurations
-import bot.handlers.audioLoadHandlers.QuietAudioLoadHandler
+import bot.handlers.audioLoadHandlers.RockAudioLoadHandler
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
@@ -21,6 +21,6 @@ class RockCommand : Command() {
         val guild = event.guild
 
         audioPlayerManager.clearQueue(guild)
-        audioPlayerManager.loadAndPlay(guild, configurations.rockURL, QuietAudioLoadHandler(event))
+        audioPlayerManager.loadAndPlay(guild, configurations.rockURL, RockAudioLoadHandler(event))
     }
 }

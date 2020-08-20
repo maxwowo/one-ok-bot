@@ -1,21 +1,14 @@
 package bot.handlers.audioLoadHandlers
 
 import bot.exceptions.AuthorNotConnectedToVoiceChannelException
-import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException
-import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
-import com.sedmelluq.discord.lavaplayer.track.AudioTrack
 import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
 
 abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
-    abstract fun trackLoadedReply(track: AudioTrack)
-
-    abstract fun playlistLoadedReply(playlist: AudioPlaylist)
-
-    private fun connectToVoiceChannel() {
+    protected fun connectToVoiceChannel() {
         if (!event.guild.audioManager.isConnected) {
             val author = event.author
             val audioManager = event.guild.audioManager
@@ -29,43 +22,13 @@ abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResu
         }
     }
 
-    override fun trackLoaded(track: AudioTrack) {
+    protected fun notifyAuthorNotConnected() {
         val builder = EmbedBuilder()
 
-        trackLoadedReply(track)
+        builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
+        builder.setColor(Color.RED)
 
-        try {
-            connectToVoiceChannel()
-
-            audioPlayerManager.queueTrack(event.guild, track)
-        } catch (exception: AuthorNotConnectedToVoiceChannelException) {
-            builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
-            builder.setColor(Color.RED)
-
-            event.reply(builder.build())
-        }
-    }
-
-    override fun playlistLoaded(playlist: AudioPlaylist) {
-        val tracks = playlist.tracks
-        val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
-        val firstTrackIndex = playlist.tracks.indexOf(firstTrack)
-        val remainingTracks = tracks.subList(firstTrackIndex + 1, tracks.size) + tracks.subList(0, firstTrackIndex)
-
-        playlistLoadedReply(playlist)
-
-        try {
-            connectToVoiceChannel()
-
-            audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
-        } catch (exception: AuthorNotConnectedToVoiceChannelException) {
-            val builder = EmbedBuilder()
-
-            builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
-            builder.setColor(Color.RED)
-
-            event.reply(builder.build())
-        }
+        event.reply(builder.build())
     }
 
     override fun noMatches() {

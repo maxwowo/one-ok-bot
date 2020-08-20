@@ -1,11 +1,10 @@
 package bot.commands
 
 import bot.configurations.configurations
-import bot.handlers.audioLoadHandlers.QuietAudioLoadHandler
+import bot.handlers.audioLoadHandlers.GimmeAudioLoadHandler
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
-import net.dv8tion.jda.api.EmbedBuilder
 
 /**
  * Class that represents the !gimme command
@@ -19,16 +18,9 @@ class GimmeCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
-        val builder = EmbedBuilder()
         val guild = event.guild
 
-        builder.setDescription("**MOOOOOOOORE**")
-        builder.setFooter(event.author.name)
-        builder.setTimestamp(event.message.timeCreated)
-
         audioPlayerManager.clearQueue(guild)
-        audioPlayerManager.loadAndPlay(guild, configurations.noScaredURL, QuietAudioLoadHandler(event))
-
-        event.reply(builder.build())
+        audioPlayerManager.loadAndPlay(guild, configurations.noScaredURL, GimmeAudioLoadHandler(event))
     }
 }
