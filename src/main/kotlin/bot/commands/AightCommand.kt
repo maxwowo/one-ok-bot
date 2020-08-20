@@ -18,11 +18,15 @@ class AightCommand : Command() {
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
 
-        builder.setDescription("Imma head out")
-        builder.setFooter(event.author.name)
-        builder.setTimestamp(event.message.timeCreated)
+        if (event.guild.audioManager.isConnected) {
+            builder.setDescription("Imma head out")
+            builder.setFooter(event.author.name)
+            builder.setTimestamp(event.message.timeCreated)
 
-        event.guild.audioManager.closeAudioConnection()
+            event.guild.audioManager.closeAudioConnection()
+        } else {
+            builder.setDescription("${event.author.asMention} Bro I'm not even in a voice channel")
+        }
 
         event.reply(builder.build())
     }
