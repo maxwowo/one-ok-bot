@@ -41,7 +41,7 @@ class Configurations {
     val rockURL: String get() = configurations[AudioSpec.rockURL]
 
     /* Link to No Scared */
-    val noScaredURL : String get() = configurations[AudioSpec.noScaredURL]
+    val noScaredURL: String get() = configurations[AudioSpec.noScaredURL]
 }
 
 /**

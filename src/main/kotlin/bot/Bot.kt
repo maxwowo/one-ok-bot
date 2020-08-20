@@ -4,13 +4,13 @@ import bot.commands.AightCommand
 import bot.commands.BruhCommand
 import bot.commands.EverydayCommand
 import bot.commands.LofiCommand
+import bot.commands.MoreCommand
 import bot.commands.OkCommand
 import bot.commands.OneCommand
 import bot.commands.RockCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
-import bot.commands.MoreCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
