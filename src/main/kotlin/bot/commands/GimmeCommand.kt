@@ -11,16 +11,16 @@ import net.dv8tion.jda.api.EmbedBuilder
  *
  * Clears the queue and plays No Scared
  */
-class MoreCommand : Command() {
+class GimmeCommand : Command() {
     init {
-        name = "more"
-        help = "GIVE ME MOOOORE"
+        name = "gimme"
+        help = "GIVE ME MOOOOOOOORE"
     }
 
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
 
-        builder.setDescription("GIVE ME MOOOORE")
+        builder.setDescription("**MOOOOOOOORE**")
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 

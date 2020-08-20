@@ -39,6 +39,10 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
         queue.addAll(shuffled)
     }
 
+    fun isEmpty(): Boolean {
+        return queue.isEmpty()
+    }
+
     fun clear() {
         queue.clear()
         nextTrack()

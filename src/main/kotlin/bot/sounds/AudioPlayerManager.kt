@@ -44,6 +44,12 @@ class AudioPlayerManager {
         return musicManager
     }
 
+    fun queueIsEmpty(guild: Guild): Boolean {
+        val musicManager = findGuildMusicManager(guild)
+
+        return musicManager.scheduler.isEmpty()
+    }
+
     fun queueTrack(guild: Guild, track: AudioTrack) {
         val musicManager = findGuildMusicManager(guild)
 

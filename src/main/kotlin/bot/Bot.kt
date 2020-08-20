@@ -4,7 +4,7 @@ import bot.commands.AightCommand
 import bot.commands.BruhCommand
 import bot.commands.EverydayCommand
 import bot.commands.LofiCommand
-import bot.commands.MoreCommand
+import bot.commands.GimmeCommand
 import bot.commands.OkCommand
 import bot.commands.OneCommand
 import bot.commands.RockCommand
@@ -69,7 +69,7 @@ class Bot : Runnable {
                 LofiCommand(),
 
                 /* Command to clear the queue and play No Scared */
-                MoreCommand()
+                GimmeCommand()
             )
         }
 

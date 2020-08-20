@@ -28,21 +28,24 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
     override fun trackLoaded(track: AudioTrack) {
         val builder = EmbedBuilder()
 
-        builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
-        builder.setFooter(event.author.name)
-        builder.setTimestamp(event.message.timeCreated)
+        if (!audioPlayerManager.queueIsEmpty(event.guild)) {
+            builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
+            builder.setFooter(event.author.name)
+            builder.setTimestamp(event.message.timeCreated)
+
+            event.reply(builder.build())
+        }
 
         try {
             connectToVoiceChannel()
 
             audioPlayerManager.queueTrack(event.guild, track)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
-            builder.clear()
             builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
             builder.setColor(Color.RED)
-        }
 
-        event.reply(builder.build())
+            event.reply(builder.build())
+        }
     }
 
     override fun playlistLoaded(playlist: AudioPlaylist) {
@@ -52,21 +55,24 @@ class GeneralAudioLoadHandler(private val event: CommandEvent) : AudioLoadResult
         val firstTrackIndex = playlist.tracks.indexOf(firstTrack)
         val remainingTracks = tracks.subList(firstTrackIndex + 1, tracks.size) + tracks.subList(0, firstTrackIndex)
 
-        builder.setDescription("Queued **${playlist.tracks.size}** tracks")
-        builder.setFooter(event.author.name)
-        builder.setTimestamp(event.message.timeCreated)
+        if (!audioPlayerManager.queueIsEmpty(event.guild)) {
+            builder.setDescription("Queued **${playlist.tracks.size}** tracks")
+            builder.setFooter(event.author.name)
+            builder.setTimestamp(event.message.timeCreated)
+
+            event.reply(builder.build())
+        }
 
         try {
             connectToVoiceChannel()
 
             audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
-            builder.clear()
             builder.setDescription("${event.author.asMention} Bro you gotta join a voice channel first")
             builder.setColor(Color.RED)
-        }
 
-        event.reply(builder.build())
+            event.reply(builder.build())
+        }
     }
 
     override fun noMatches() {
