@@ -1,7 +1,6 @@
 package bot.handlers.audioLoadHandlers
 
 import bot.exceptions.AuthorNotConnectedToVoiceChannelException
-import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
 import net.dv8tion.jda.api.EmbedBuilder
@@ -27,7 +26,7 @@ class RockAudioLoadHandler(private val event: CommandEvent) : QuietAudioLoadHand
 
             event.reply(builder.build())
 
-            audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
+            musicManager.scheduler.queue(firstTrack, remainingTracks)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
             notifyAuthorNotConnected()
         }

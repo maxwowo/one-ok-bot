@@ -18,12 +18,13 @@ class YeetCommand : Command() {
 
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
+        val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
 
         builder.setDescription("Yote the queue")
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 
-        audioPlayerManager.clearQueue(event.guild)
+        musicManager.scheduler.clear()
 
         event.reply(builder.build())
     }

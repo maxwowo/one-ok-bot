@@ -1,7 +1,6 @@
 package bot.handlers.audioLoadHandlers
 
 import bot.exceptions.AuthorNotConnectedToVoiceChannelException
-import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack
@@ -20,7 +19,7 @@ class LoudAudioLoadHandler(private val event: CommandEvent) : AudioLoadHandler(e
 
             event.reply(builder.build())
 
-            audioPlayerManager.queueTrack(event.guild, track)
+            musicManager.scheduler.queue(track)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
             notifyAuthorNotConnected()
         }
@@ -43,7 +42,7 @@ class LoudAudioLoadHandler(private val event: CommandEvent) : AudioLoadHandler(e
 
             event.reply(builder.build())
 
-            audioPlayerManager.queueTracks(event.guild, firstTrack, remainingTracks)
+            musicManager.scheduler.queue(firstTrack, remainingTracks)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
             notifyAuthorNotConnected()
         }

@@ -18,10 +18,22 @@ class OkCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
-        if (event.guild.audioManager.isConnected) {
-            audioPlayerManager.skipTrack(event.textChannel)
+        val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
+        val scheduler = musicManager.scheduler
 
-            event.message.addReaction("\uD83D\uDC4C").queue()
+        if (event.guild.audioManager.isConnected) {
+            if (scheduler.isEmpty() && !scheduler.isPlayingTrack()) {
+                val builder = EmbedBuilder()
+
+                builder.setDescription("${event.author.asMention} Bro the queue is empty")
+                builder.setColor(Color.RED)
+
+                event.reply(builder.build())
+            } else {
+                scheduler.nextTrack()
+
+                event.message.addReaction("\uD83D\uDC4C").queue()
+            }
         } else {
             val builder = EmbedBuilder()
 

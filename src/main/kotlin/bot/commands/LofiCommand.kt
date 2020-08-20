@@ -19,8 +19,10 @@ class LofiCommand : Command() {
 
     override fun execute(event: CommandEvent) {
         val guild = event.guild
+        val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
 
-        audioPlayerManager.clearQueue(guild)
+        musicManager.scheduler.clear()
+
         audioPlayerManager.loadAndPlay(guild, configurations.lofiURL, LofiAudioLoadHandler(event))
     }
 }

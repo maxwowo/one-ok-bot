@@ -1,6 +1,7 @@
 package bot.handlers.audioLoadHandlers
 
 import bot.exceptions.AuthorNotConnectedToVoiceChannelException
+import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException
@@ -8,6 +9,8 @@ import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
 
 abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
+    protected val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
+
     protected fun connectToVoiceChannel() {
         if (!event.guild.audioManager.isConnected) {
             val author = event.author

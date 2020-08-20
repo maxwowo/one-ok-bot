@@ -18,12 +18,13 @@ class EverydayCommand : Command() {
 
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
+        val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
 
         builder.setDescription("I'm shufflin'")
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 
-        audioPlayerManager.shuffleQueue(event.textChannel)
+        musicManager.scheduler.shuffle()
 
         event.reply(builder.build())
     }

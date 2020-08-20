@@ -4,9 +4,7 @@ import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers
-import com.sedmelluq.discord.lavaplayer.track.AudioTrack
 import net.dv8tion.jda.api.entities.Guild
-import net.dv8tion.jda.api.entities.TextChannel
 
 class AudioPlayerManager {
     private val playerManager: AudioPlayerManager
@@ -23,9 +21,7 @@ class AudioPlayerManager {
     fun loadAndPlay(guild: Guild, trackURL: String, handler: AudioLoadResultHandler) {
         val musicManager = findGuildMusicManager(guild)
 
-        playerManager.loadItemOrdered(
-            musicManager, trackURL, handler
-        )
+        playerManager.loadItemOrdered(musicManager, trackURL, handler)
     }
 
     @Synchronized
@@ -41,46 +37,6 @@ class AudioPlayerManager {
         guild.audioManager.sendingHandler = musicManager.getSendHandler()
 
         return musicManager
-    }
-
-    fun queueIsEmpty(guild: Guild): Boolean {
-        val musicManager = findGuildMusicManager(guild)
-
-        return musicManager.scheduler.isEmpty()
-    }
-
-    fun queueTrack(guild: Guild, track: AudioTrack) {
-        val musicManager = findGuildMusicManager(guild)
-
-        musicManager.scheduler.queue(track)
-    }
-
-    fun queueTracks(
-        guild: Guild,
-        firstTrack: AudioTrack,
-        remainingTracks: List<AudioTrack>
-    ) {
-        val musicManager = findGuildMusicManager(guild)
-
-        musicManager.scheduler.queue(firstTrack, remainingTracks)
-    }
-
-    fun skipTrack(channel: TextChannel) {
-        val musicManager = findGuildMusicManager(channel.guild)
-
-        musicManager.scheduler.nextTrack()
-    }
-
-    fun shuffleQueue(channel: TextChannel) {
-        val musicManager = findGuildMusicManager(channel.guild)
-
-        musicManager.scheduler.shuffle()
-    }
-
-    fun clearQueue(guild: Guild) {
-        val musicManager = findGuildMusicManager(guild)
-
-        musicManager.scheduler.clear()
     }
 }
 
