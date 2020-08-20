@@ -3,6 +3,8 @@ package bot.commands
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
+import net.dv8tion.jda.api.EmbedBuilder
+import java.awt.Color
 
 /**
  * Class that represents the !ok command
@@ -16,8 +18,17 @@ class OkCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
-        audioPlayerManager.skipTrack(event.textChannel)
+        if (event.guild.audioManager.isConnected) {
+            audioPlayerManager.skipTrack(event.textChannel)
 
-        event.message.addReaction("\uD83D\uDC4C").queue()
+            event.message.addReaction("\uD83D\uDC4C").queue()
+        } else {
+            val builder = EmbedBuilder()
+
+            builder.setDescription("${event.author.asMention} Bro I'm not even in a voice channel")
+            builder.setColor(Color.RED)
+
+            event.reply(builder.build())
+        }
     }
 }
