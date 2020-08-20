@@ -6,7 +6,7 @@ import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
 
-abstract class AudioCommand: Command() {
+abstract class AudioCommand : Command() {
     abstract fun handleQueueEmpty(event: CommandEvent)
     abstract fun handleCommand(event: CommandEvent)
 

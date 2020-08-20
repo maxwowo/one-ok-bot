@@ -1,7 +1,6 @@
 package bot.commands
 
 import bot.sounds.audioPlayerManager
-import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
 import net.dv8tion.jda.api.EmbedBuilder
 import java.awt.Color
