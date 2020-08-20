@@ -25,5 +25,5 @@ In order to use One Ok Bot you need to first [invite](https://discord.com/api/oa
 
 - `!bruh` - Greets you
 - `!boi` - Fastest boi in the west
-- `!slave` - Tags other bots if present
+- `!slave` - Tags other bots
 - `!skincare` - Offers you some helpful skincare tips

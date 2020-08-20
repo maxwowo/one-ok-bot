@@ -7,12 +7,12 @@ import net.dv8tion.jda.api.EmbedBuilder
 /**
  * Class that represents the !slave command
  *
- * Tags other bots if present
+ * Tags other bots
  */
 class SlaveCommand : Command() {
     init {
         name = "slave"
-        help = "Tags other bots if present"
+        help = "Tags other bots"
         category = Category("Random")
     }
 
