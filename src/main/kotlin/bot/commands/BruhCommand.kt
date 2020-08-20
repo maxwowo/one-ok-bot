@@ -13,6 +13,7 @@ class BruhCommand : Command() {
     init {
         name = "bruh"
         help = "Greets you"
+        category = Category("Random")
     }
 
     override fun execute(event: CommandEvent) {

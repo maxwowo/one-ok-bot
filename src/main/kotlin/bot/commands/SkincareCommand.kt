@@ -13,6 +13,7 @@ class SkincareCommand : Command() {
     init {
         name = "skincare"
         help = "Offers you some helpful skincare tips"
+        category = Category("Random")
     }
 
     override fun execute(event: CommandEvent) {

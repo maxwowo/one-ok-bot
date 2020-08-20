@@ -13,6 +13,7 @@ class AightCommand : Command() {
     init {
         name = "aight"
         help = "Leaves the voice channel"
+        category = Category("Music")
     }
 
     override fun execute(event: CommandEvent) {

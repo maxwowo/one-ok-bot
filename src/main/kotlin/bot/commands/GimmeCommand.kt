@@ -15,6 +15,7 @@ class GimmeCommand : Command() {
     init {
         name = "gimme"
         help = "GIVE ME MOOOOOOOORE"
+        category = Category("Music")
     }
 
     override fun execute(event: CommandEvent) {

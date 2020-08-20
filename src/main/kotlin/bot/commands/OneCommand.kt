@@ -17,6 +17,7 @@ class OneCommand : Command() {
         name = "one"
         help = "Queues a track"
         arguments = "<Youtube URL>"
+        category = Category("Music")
     }
 
     override fun execute(event: CommandEvent) {

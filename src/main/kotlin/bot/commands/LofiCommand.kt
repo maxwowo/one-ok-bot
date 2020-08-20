@@ -15,6 +15,7 @@ class LofiCommand : Command() {
     init {
         name = "lofi"
         help = "Clears the queue and plays the lo-fi stream"
+        category = Category("Music")
     }
 
     override fun execute(event: CommandEvent) {

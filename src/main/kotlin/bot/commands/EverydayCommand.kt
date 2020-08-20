@@ -14,6 +14,7 @@ class EverydayCommand : AudioCommand() {
     init {
         name = "everyday"
         help = "Shuffles the queue"
+        category = Category("Music")
     }
 
     override fun handleQueueEmpty(event: CommandEvent) {

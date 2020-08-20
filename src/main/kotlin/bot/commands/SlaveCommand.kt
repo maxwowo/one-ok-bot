@@ -13,6 +13,7 @@ class SlaveCommand : Command() {
     init {
         name = "slave"
         help = "Tags other bots if present"
+        category = Category("Random")
     }
 
     override fun execute(event: CommandEvent) {

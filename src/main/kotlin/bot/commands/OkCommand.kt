@@ -14,6 +14,7 @@ class OkCommand : AudioCommand() {
     init {
         name = "ok"
         help = "Skips the current song in the queue"
+        category = Category("Music")
     }
 
     override fun handleQueueEmpty(event: CommandEvent) {

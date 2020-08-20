@@ -1,6 +1,7 @@
 package bot
 
 import bot.commands.AightCommand
+import bot.commands.BoiCommand
 import bot.commands.BruhCommand
 import bot.commands.EverydayCommand
 import bot.commands.GimmeCommand
@@ -38,9 +39,6 @@ class Bot : Runnable {
             setPrefix(configurations.prefix)
 
             addCommands(
-                /* Command to get the bot to reply "Bruh" back to you */
-                BruhCommand(),
-
                 /* Command to play a track */
                 OneCommand(),
 
@@ -50,11 +48,11 @@ class Bot : Runnable {
                 /* Command to play One Ok Rock songs */
                 RockCommand(),
 
-                /* Command to tag the other music bots if present */
-                SlaveCommand(),
+                /* Command to play the lo-fi stream */
+                LofiCommand(),
 
-                /* Command to get the bot to reply with Patrick Bateman's skincare routine */
-                SkincareCommand(),
+                /* Command to clear the queue and play No Scared */
+                GimmeCommand(),
 
                 /* Command to clear the queue */
                 YeetCommand(),
@@ -65,11 +63,17 @@ class Bot : Runnable {
                 /* Command to leave the voice channel */
                 AightCommand(),
 
-                /* Command to play the lo-fi stream */
-                LofiCommand(),
+                /* Command to get the bot to reply "Bruh" back to you */
+                BruhCommand(),
 
-                /* Command to clear the queue and play No Scared */
-                GimmeCommand()
+                /* Command to react boi to a message */
+                BoiCommand(),
+
+                /* Command to tag the other music bots if present */
+                SlaveCommand(),
+
+                /* Command to get the bot to reply with Patrick Bateman's skincare routine */
+                SkincareCommand()
             )
         }
 

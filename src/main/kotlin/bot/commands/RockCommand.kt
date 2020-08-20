@@ -15,6 +15,7 @@ class RockCommand : Command() {
     init {
         name = "rock"
         help = "Clears the queue and plays One Ok Rock songs"
+        category = Category("Music")
     }
 
     override fun execute(event: CommandEvent) {

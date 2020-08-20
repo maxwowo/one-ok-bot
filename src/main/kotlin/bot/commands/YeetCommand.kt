@@ -14,6 +14,7 @@ class YeetCommand : AudioCommand() {
     init {
         name = "yeet"
         help = "Clears the queue"
+        category = Category("Music")
     }
 
     override fun handleQueueEmpty(event: CommandEvent) {
