@@ -1,6 +1,7 @@
 package bot.commands
 
 import bot.configurations.configurations
+import bot.handlers.audioLoadHandlers.LoudAudioLoadHandler
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
@@ -17,7 +18,9 @@ class LofiCommand : Command() {
     }
 
     override fun execute(event: CommandEvent) {
-        audioPlayerManager.clearQueue(event.guild)
-        audioPlayerManager.loadAndPlay(event, configurations.lofiURL)
+        val guild = event.guild
+
+        audioPlayerManager.clearQueue(guild)
+        audioPlayerManager.loadAndPlay(guild, configurations.lofiURL, LoudAudioLoadHandler(event))
     }
 }
