@@ -22,10 +22,10 @@ class OkCommand : Command() {
         val scheduler = musicManager.scheduler
 
         if (event.guild.audioManager.isConnected) {
-            if (scheduler.isEmpty() && !scheduler.isPlayingTrack()) {
+            if (scheduler.isEmpty()) {
                 val builder = EmbedBuilder()
 
-                builder.setDescription("${event.author.asMention} Bro the queue is empty")
+                builder.setDescription("${event.author.asMention} Bro there's nothing to skip")
                 builder.setColor(Color.RED)
 
                 event.reply(builder.build())

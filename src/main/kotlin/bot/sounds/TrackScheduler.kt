@@ -39,12 +39,8 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
         queue.addAll(shuffled)
     }
 
-    fun isPlayingTrack(): Boolean {
-        return player.playingTrack != null
-    }
-
     fun isEmpty(): Boolean {
-        return queue.isEmpty()
+        return queue.isEmpty() && player.playingTrack == null
     }
 
     fun clear() {
