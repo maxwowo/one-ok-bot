@@ -17,6 +17,7 @@ In order to use One Ok Bot you need to first [invite](https://discord.com/api/oa
 - `!rock` - Clears the queue and plays One Ok Rock songs
 - `!lofi` - Clears the queue and plays the lo-fi stream
 - `!gimme` - GIMME MOOOOOOOORE
+- `!hip` - It's hip to be square
 - `!yeet` - Clears the queue
 - `!everyday` - Shuffles the queue
 - `!aight` - Leaves the voice channel

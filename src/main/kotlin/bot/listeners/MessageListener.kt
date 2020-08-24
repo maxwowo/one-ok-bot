@@ -16,7 +16,7 @@ class MessageListener : ListenerAdapter() {
                 )
             } else if ("bad\\s+bot".toRegex().containsMatchIn(content)) {
                 builder.setDescription(
-                    javaClass.getResource("/copypastas/navy_seal.txt").readText()
+                    javaClass.getResource("/copypastas/navy_seal.md").readText()
                 )
             }
 

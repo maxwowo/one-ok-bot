@@ -16,4 +16,7 @@ object AudioSpec : ConfigSpec() {
 
     /* Link to No Scared */
     val noScaredURL by required<String>(description = "Link to No Scared")
+
+    /* Link to Hip To Be Square */
+    val hipToBeSquareURL by required<String>(description = "Link to Hip To Be Square")
 }

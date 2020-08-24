@@ -5,6 +5,7 @@ import bot.commands.BoiCommand
 import bot.commands.BruhCommand
 import bot.commands.EverydayCommand
 import bot.commands.GimmeCommand
+import bot.commands.HipCommand
 import bot.commands.LofiCommand
 import bot.commands.OkCommand
 import bot.commands.OneCommand
@@ -53,6 +54,9 @@ class Bot : Runnable {
 
                 /* Command to clear the queue and play No Scared */
                 GimmeCommand(),
+
+                /* Clears the queue and plays Hip To Be Square */
+                HipCommand(),
 
                 /* Command to clear the queue */
                 YeetCommand(),

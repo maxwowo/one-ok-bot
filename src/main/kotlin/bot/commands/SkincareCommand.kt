@@ -19,7 +19,7 @@ class SkincareCommand : Command() {
     override fun execute(event: CommandEvent) {
         val builder = EmbedBuilder()
 
-        builder.setDescription(javaClass.getResource("/copypastas/patrick_bateman.txt").readText())
+        builder.setDescription(javaClass.getResource("/copypastas/patrick_bateman.md").readText())
 
         event.reply(builder.build())
     }

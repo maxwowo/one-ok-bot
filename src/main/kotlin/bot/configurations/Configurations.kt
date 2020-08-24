@@ -2,6 +2,7 @@ package bot.configurations
 
 import bot.configurations.specifications.AudioSpec
 import bot.configurations.specifications.BotSpec
+import bot.configurations.specifications.ImageSpec
 import com.uchuhimo.konf.Config
 import com.uchuhimo.konf.Feature
 import com.uchuhimo.konf.source.yaml
@@ -17,7 +18,11 @@ import com.uchuhimo.konf.source.yaml
  */
 class Configurations {
     /* Configuration map */
-    private var configurations = Config { addSpec(BotSpec); addSpec(AudioSpec) ; }
+    private var configurations = Config {
+        addSpec(BotSpec)
+        addSpec(AudioSpec)
+        addSpec(ImageSpec)
+    }
         .from.enabled(Feature.FAIL_ON_UNKNOWN_PATH).yaml.resource("default.yml")
         .from.env()
         .from.systemProperties()
@@ -42,6 +47,12 @@ class Configurations {
 
     /* Link to No Scared */
     val noScaredURL: String get() = configurations[AudioSpec.noScaredURL]
+
+    /* Link to Hip To Be Square */
+    val hipToBeSquareURL: String get() = configurations[AudioSpec.hipToBeSquareURL]
+
+    /* Link to the picture of Patrick Bateman holding an axe */
+    val batemanAxeURL: String get() = configurations[ImageSpec.batemanAxeURL]
 }
 
 /**
