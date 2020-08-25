@@ -9,11 +9,11 @@ import bot.commands.HipCommand
 import bot.commands.LofiCommand
 import bot.commands.OkCommand
 import bot.commands.OneCommand
+import bot.commands.RewindCommand
 import bot.commands.RockCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
-import bot.commands.RewindCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
