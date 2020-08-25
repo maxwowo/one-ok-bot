@@ -9,6 +9,7 @@ class RockAudioLoadHandler(private val event: CommandEvent) : QuietAudioLoadHand
     override fun playlistLoaded(playlist: AudioPlaylist) {
         val tracks = playlist.tracks
 
+        /* Shuffle the tracks so we don't play through the same playlist every time */
         tracks.shuffle()
 
         val firstTrack = playlist.selectedTrack ?: playlist.tracks.first()
