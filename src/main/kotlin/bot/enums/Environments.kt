@@ -5,7 +5,7 @@ package bot.enums
  *
  * @param value The corresponding value of the environment
  */
-enum class Environments(val value: String) {
+enum class Environments(private val value: String) {
     DEVELOPMENT("DEVELOPMENT"),
     TEST("TEST"),
     PRODUCTION("PRODUCTION")

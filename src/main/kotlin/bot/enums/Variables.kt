@@ -5,6 +5,6 @@ package bot.enums
  *
  * @param value The corresponding value of the environment variable
  */
-enum class Variables(val value: String) {
+enum class Variables(private val value: String) {
     ENVIRONMENT("ENVIRONMENT")
 }
