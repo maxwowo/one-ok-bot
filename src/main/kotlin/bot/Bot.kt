@@ -13,6 +13,7 @@ import bot.commands.RockCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
 import bot.commands.YeetCommand
+import bot.commands.RewindCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
 import bot.listeners.VoiceLeaveListener
@@ -57,6 +58,9 @@ class Bot : Runnable {
 
                 /* Clears the queue and plays Hip To Be Square */
                 HipCommand(),
+
+                /* Command that loops the current track */
+                RewindCommand(),
 
                 /* Command to clear the queue */
                 YeetCommand(),

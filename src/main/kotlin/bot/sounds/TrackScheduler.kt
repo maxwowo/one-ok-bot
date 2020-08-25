@@ -8,6 +8,8 @@ import java.util.concurrent.BlockingQueue
 import java.util.concurrent.LinkedBlockingQueue
 
 class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
+    var looping: Boolean = false
+
     private val queue: BlockingQueue<AudioTrack>
 
     init {
@@ -50,7 +52,11 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
 
     override fun onTrackEnd(player: AudioPlayer, track: AudioTrack, reason: AudioTrackEndReason) {
         if (reason.mayStartNext) {
-            nextTrack()
+            if (looping) {
+                player.startTrack(track.makeClone(), false)
+            } else {
+                nextTrack()
+            }
         }
     }
 }
