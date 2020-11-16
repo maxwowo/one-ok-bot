@@ -27,7 +27,7 @@ dependencies {
   implementation 'org.jetbrains.kotlin:kotlin-reflect'
 
   /* Music player */
-  implementation 'com.sedmelluq:lavaplayer:1.3.50'
+  implementation 'com.sedmelluq:lavaplayer:1.3.60'
 
   /* Configuration */
   implementation 'com.uchuhimo:konf:0.22.1'
