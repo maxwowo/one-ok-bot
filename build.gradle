@@ -7,7 +7,7 @@ plugins {
   id 'com.github.johnrengelman.shadow' version '6.1.0'
 
   /* Linter */
-  id "org.jlleitschuh.gradle.ktlint" version "9.4.1"
+  id "org.jlleitschuh.gradle.ktlint" version "11.2.0"
 }
 
 group 'com.maxwowo.bot'
