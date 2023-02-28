@@ -4,7 +4,7 @@ plugins {
   id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 
   /* Shadow JAR */
-  id 'com.github.johnrengelman.shadow' version '6.1.0'
+  id 'com.github.johnrengelman.shadow' version '8.1.0'
 
   /* Linter */
   id "org.jlleitschuh.gradle.ktlint" version "11.2.0"
