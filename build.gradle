@@ -7,7 +7,7 @@ plugins {
   id 'com.github.johnrengelman.shadow' version '8.1.0'
 
   /* Linter */
-  id "org.jlleitschuh.gradle.ktlint" version "11.2.0"
+  id "org.jlleitschuh.gradle.ktlint" version "11.3.1"
 }
 
 group 'com.maxwowo.bot'
@@ -23,7 +23,7 @@ repositories {
 dependencies {
   /* Discord API */
   implementation 'com.jagrosh:jda-utilities:3.0.5'
-  implementation 'net.dv8tion:JDA:4.4.0_352'
+  implementation 'net.dv8tion:JDA:4.4.1_353'
 
   /* Kotlin */
   implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
@@ -40,7 +40,7 @@ dependencies {
   implementation 'io.github.microutils:kotlin-logging:3.0.5'
 
   /* Error tracking */
-  implementation 'io.sentry:sentry:6.14.0'
+  implementation 'io.sentry:sentry:6.15.0'
 
   testCompile group: 'junit', name: 'junit', version: '4.13.2'
 }
