@@ -34,7 +34,6 @@ abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResu
      * A helper method for the classes inheriting from [AudioLoadHandler] to use
      */
     protected fun connectToVoiceChannel() {
-
         /* Only execute if bot is not currently connected to a voice channel in the event's guild */
         if (!event.guild.audioManager.isConnected) {
             val author = event.author
@@ -42,7 +41,7 @@ abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResu
 
             /* Find voice channel containing event's author */
             val voiceChannel = event.guild.voiceChannels.find {
-                channel ->
+                    channel ->
                 author in channel.members.map { it.user }
             } ?: throw AuthorNotConnectedToVoiceChannelException(author)
 
