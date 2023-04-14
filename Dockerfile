@@ -1,7 +1,7 @@
 #
 # Step 1 -Build the JAR file
 #
-FROM gradle:8.1.0-jdk8 AS builder
+FROM gradle:8.1.0-jdk17 AS builder
 
 # Create build directory
 WORKDIR /build
@@ -15,7 +15,7 @@ RUN gradle shadowJar
 #
 # Step 2 - Build a lean runtime container
 #
-FROM openjdk:8-jre-alpine3.9
+FROM eclipse-temurin:17-jre-ubi9-minimal
 
 # Create bot directory
 WORKDIR /bot
