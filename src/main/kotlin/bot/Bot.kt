@@ -20,6 +20,7 @@ import bot.listeners.VoiceLeaveListener
 import com.jagrosh.jdautilities.command.CommandClientBuilder
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.dv8tion.jda.api.utils.ChunkingFilter
 
@@ -90,6 +91,7 @@ class Bot : Runnable {
             addEventListeners(waiter, client.build(), MessageListener(), VoiceLeaveListener())
             setChunkingFilter(ChunkingFilter.ALL)
             enableIntents(GatewayIntent.GUILD_MEMBERS)
+            setActivity(Activity.listening("!huh"))
             build()
         }
     }
