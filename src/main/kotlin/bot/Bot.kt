@@ -23,6 +23,7 @@ import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.dv8tion.jda.api.utils.ChunkingFilter
+import net.dv8tion.jda.api.utils.cache.CacheFlag
 
 /**
  * Class that represents the bot
@@ -89,8 +90,14 @@ class Bot : Runnable {
         /* Builder setup */
         with(builder) {
             addEventListeners(waiter, client.build(), MessageListener(), VoiceLeaveListener())
-            setChunkingFilter(ChunkingFilter.ALL)
-            enableIntents(GatewayIntent.GUILD_MEMBERS)
+            disableCache(CacheFlag.ACTIVITY)
+            setChunkingFilter(ChunkingFilter.NONE)
+            disableIntents(
+                GatewayIntent.GUILD_MEMBERS,
+                GatewayIntent.GUILD_PRESENCES,
+                GatewayIntent.DIRECT_MESSAGE_TYPING
+            )
+            setLargeThreshold(50)
             setActivity(Activity.listening("!huh"))
             build()
         }
