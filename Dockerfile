@@ -15,7 +15,7 @@ RUN gradle shadowJar
 #
 # Step 2 - Build a lean runtime container
 #
-FROM eclipse-temurin:17-jre-ubi9-minimal
+FROM eclipse-temurin:17.0.6_10-jre-ubi9-minimal
 
 # Create bot directory
 WORKDIR /bot
