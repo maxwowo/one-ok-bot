@@ -51,6 +51,9 @@ class Configurations {
     /* Link to Hip To Be Square */
     val hipToBeSquareURL: String get() = configurations[AudioSpec.hipToBeSquareURL]
 
+    /* Link to Hip To Be Square */
+    val tutelURL: String get() = configurations[AudioSpec.tutelURL]
+
     /* Link to the picture of Patrick Bateman holding an axe */
     val batemanAxeURL: String get() = configurations[ImageSpec.batemanAxeURL]
 }

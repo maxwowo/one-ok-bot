@@ -19,4 +19,7 @@ object AudioSpec : ConfigSpec() {
 
     /* Link to Hip To Be Square */
     val hipToBeSquareURL by required<String>(description = "Link to Hip To Be Square")
+
+    /* Link to 2:23 AM */
+    val tutelURL by required<String>(description = "Link to 2:23 AM")
 }

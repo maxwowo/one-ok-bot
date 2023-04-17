@@ -1,20 +1,20 @@
 package bot.commands
 
 import bot.configurations.configurations
-import bot.handlers.LofiAudioLoadHandler
+import bot.handlers.TutelAudioLoadHandler
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent
 
 /**
- * Class that represents the !lofi command
+ * Class that represents the !tutel command
  *
- * Clears the queue and plays the lo-fi stream
+ * Clears the queue and plays 2:23 AM
  */
-class LofiCommand : Command() {
+class TutelCommand : Command() {
     init {
-        name = "lofi"
-        help = "Clears the queue and plays the lo-fi stream"
+        name = "tutel"
+        help = "Tutel"
         category = Category("Music")
     }
 
@@ -24,6 +24,6 @@ class LofiCommand : Command() {
 
         musicManager.scheduler.clear()
 
-        audioPlayerManager.loadAndPlay(guild, configurations.lofiURL, LofiAudioLoadHandler(event))
+        audioPlayerManager.loadAndPlay(guild, configurations.tutelURL, TutelAudioLoadHandler(event))
     }
 }

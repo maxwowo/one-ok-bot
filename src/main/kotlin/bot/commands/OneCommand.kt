@@ -1,6 +1,6 @@
 package bot.commands
 
-import bot.handlers.audioLoadHandlers.LoudAudioLoadHandler
+import bot.handlers.LoudAudioLoadHandler
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent

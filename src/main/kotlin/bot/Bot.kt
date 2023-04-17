@@ -13,6 +13,7 @@ import bot.commands.RewindCommand
 import bot.commands.RockCommand
 import bot.commands.SkincareCommand
 import bot.commands.SlaveCommand
+import bot.commands.TutelCommand
 import bot.commands.YeetCommand
 import bot.configurations.configurations
 import bot.listeners.MessageListener
@@ -58,8 +59,11 @@ class Bot : Runnable {
                 /* Command to clear the queue and play No Scared */
                 GimmeCommand(),
 
-                /* Clears the queue and plays Hip To Be Square */
+                /* Command to clear the queue and plays Hip To Be Square */
                 HipCommand(),
+
+                /* Command to clear the queue and plays 2:23 AM */
+                TutelCommand(),
 
                 /* Command that loops the current track */
                 RewindCommand(),

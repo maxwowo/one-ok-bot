@@ -1,4 +1,4 @@
-package bot.handlers.audioLoadHandlers
+package bot.handlers
 
 import bot.exceptions.AuthorNotConnectedToVoiceChannelException
 import com.jagrosh.jdautilities.command.CommandEvent

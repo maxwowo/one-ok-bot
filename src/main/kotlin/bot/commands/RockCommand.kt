@@ -1,7 +1,7 @@
 package bot.commands
 
 import bot.configurations.configurations
-import bot.handlers.audioLoadHandlers.RockAudioLoadHandler
+import bot.handlers.RockAudioLoadHandler
 import bot.sounds.audioPlayerManager
 import com.jagrosh.jdautilities.command.Command
 import com.jagrosh.jdautilities.command.CommandEvent

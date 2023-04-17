@@ -1,14 +1,23 @@
-package bot.handlers.audioLoadHandlers
+package bot.handlers
 
 import bot.exceptions.AuthorNotConnectedToVoiceChannelException
 import com.jagrosh.jdautilities.command.CommandEvent
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack
+import net.dv8tion.jda.api.EmbedBuilder
 
-open class QuietAudioLoadHandler(event: CommandEvent) : AudioLoadHandler(event) {
+class LoudAudioLoadHandler(private val event: CommandEvent) : AudioLoadHandler(event) {
     override fun trackLoaded(track: AudioTrack) {
         try {
+            val builder = EmbedBuilder()
+
             connectToVoiceChannel()
+
+            builder.setDescription("Queued [${track.info.title}](${track.info.uri})")
+            builder.setFooter(event.author.name)
+            builder.setTimestamp(event.message.timeCreated).build()
+
+            event.reply(builder.build())
 
             musicManager.scheduler.queue(track)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
@@ -23,7 +32,15 @@ open class QuietAudioLoadHandler(event: CommandEvent) : AudioLoadHandler(event) 
         val remainingTracks = tracks.subList(firstTrackIndex + 1, tracks.size) + tracks.subList(0, firstTrackIndex)
 
         try {
+            val builder = EmbedBuilder()
+
             connectToVoiceChannel()
+
+            builder.setDescription("Queued **${playlist.tracks.size}** tracks")
+            builder.setFooter(event.author.name)
+            builder.setTimestamp(event.message.timeCreated)
+
+            event.reply(builder.build())
 
             musicManager.scheduler.queue(firstTrack, remainingTracks)
         } catch (exception: AuthorNotConnectedToVoiceChannelException) {
