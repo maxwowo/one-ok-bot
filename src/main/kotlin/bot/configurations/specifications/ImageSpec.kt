@@ -8,6 +8,6 @@ import com.uchuhimo.konf.ConfigSpec
  * This is used by Konf and will not be accessed externally
  */
 object ImageSpec : ConfigSpec() {
-    /* Link to the picture of Patrick Bateman holding an axe */
+    // Link to the picture of Patrick Bateman holding an axe
     val batemanAxeURL by required<String>(description = "Link to the picture of Patrick Bateman holding an axe")
 }

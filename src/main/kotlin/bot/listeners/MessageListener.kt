@@ -16,11 +16,11 @@ class MessageListener : ListenerAdapter() {
         if (messageNotFromSelf && selfTaggedInMessage && eitherInMessage) {
             if (goodBotInMessage) {
                 builder.setDescription(
-                    "Damn right I am, why dont you [chuck me a star](https://github.com/maxwowo/one-ok-bot) huh?"
+                    "Damn right I am, why dont you [chuck me a star](https://github.com/maxwowo/one-ok-bot) huh?",
                 )
             } else {
                 builder.setDescription(
-                    javaClass.getResource("/copypastas/navy_seal.md").readText()
+                    javaClass.getResource("/copypastas/navy_seal.md").readText(),
                 )
             }
 

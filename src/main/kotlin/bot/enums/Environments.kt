@@ -8,5 +8,5 @@ package bot.enums
 enum class Environments(private val value: String) {
     DEVELOPMENT("DEVELOPMENT"),
     TEST("TEST"),
-    PRODUCTION("PRODUCTION")
+    PRODUCTION("PRODUCTION"),
 }

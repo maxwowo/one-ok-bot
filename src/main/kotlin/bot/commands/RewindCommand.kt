@@ -21,7 +21,7 @@ class RewindCommand : Command() {
         val builder = EmbedBuilder()
         val musicManager = audioPlayerManager.findGuildMusicManager(event.guild)
 
-        /* If scheduler  is currently looping */
+        // If scheduler  is currently looping
         if (musicManager.scheduler.looping) {
             builder.setDescription("Ahh that's hot")
         } else {
@@ -31,7 +31,7 @@ class RewindCommand : Command() {
         builder.setFooter(event.author.name)
         builder.setTimestamp(event.message.timeCreated)
 
-        /* Toggle scheduler looping */
+        // Toggle scheduler looping
         musicManager.scheduler.looping = !musicManager.scheduler.looping
 
         event.reply(builder.build())

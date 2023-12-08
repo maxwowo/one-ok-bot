@@ -37,61 +37,47 @@ class Bot : Runnable {
         val waiter = EventWaiter()
         val client = CommandClientBuilder()
 
-        /* Client setup */
+        // Client setup
         with(client) {
             setOwnerId(configurations.owner)
             setHelpWord(configurations.helpCommand)
             setPrefix(configurations.prefix)
 
             addCommands(
-                /* Command to play a track */
+                // Command to play a track
                 OneCommand(),
-
-                /* Command to skip the current track */
+                // Command to skip the current track
                 OkCommand(),
-
-                /* Command to play One Ok Rock songs */
+                // Command to play One Ok Rock songs
                 RockCommand(),
-
-                /* Command to play the lo-fi stream */
+                // Command to play the lo-fi stream
                 LofiCommand(),
-
-                /* Command to clear the queue and play No Scared */
+                // Command to clear the queue and play No Scared
                 GimmeCommand(),
-
-                /* Command to clear the queue and plays Hip To Be Square */
+                // Command to clear the queue and plays Hip To Be Square
                 HipCommand(),
-
-                /* Command to clear the queue and plays 2:23 AM */
+                // Command to clear the queue and plays 2:23 AM
                 TutelCommand(),
-
-                /* Command that loops the current track */
+                // Command that loops the current track
                 RewindCommand(),
-
-                /* Command to clear the queue */
+                // Command to clear the queue
                 YeetCommand(),
-
-                /* Command to shuffle the queue */
+                // Command to shuffle the queue
                 EverydayCommand(),
-
-                /* Command to leave the voice channel */
+                // Command to leave the voice channel
                 AightCommand(),
-
-                /* Command to get the bot to reply "Bruh" back to you */
+                // Command to get the bot to reply "Bruh" back to you
                 BruhCommand(),
-
-                /* Command to react boi to a message */
+                // Command to react boi to a message
                 BoiCommand(),
-
-                /* Command to tag the other music bots if present */
+                // Command to tag the other music bots if present
                 SlaveCommand(),
-
-                /* Command to get the bot to reply with Patrick Bateman's skincare routine */
-                SkincareCommand()
+                // Command to get the bot to reply with Patrick Bateman's skincare routine
+                SkincareCommand(),
             )
         }
 
-        /* Builder setup */
+        // Builder setup
         with(builder) {
             addEventListeners(waiter, client.build(), MessageListener(), VoiceLeaveListener())
             disableCache(CacheFlag.ACTIVITY)
@@ -99,7 +85,7 @@ class Bot : Runnable {
             disableIntents(
                 GatewayIntent.GUILD_MEMBERS,
                 GatewayIntent.GUILD_PRESENCES,
-                GatewayIntent.DIRECT_MESSAGE_TYPING
+                GatewayIntent.DIRECT_MESSAGE_TYPING,
             )
             setLargeThreshold(50)
             setActivity(Activity.listening("!huh"))

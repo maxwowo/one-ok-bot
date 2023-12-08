@@ -18,7 +18,11 @@ class AudioPlayerManager {
         AudioSourceManagers.registerLocalSource(playerManager)
     }
 
-    fun loadAndPlay(guild: Guild, trackURL: String, handler: AudioLoadResultHandler) {
+    fun loadAndPlay(
+        guild: Guild,
+        trackURL: String,
+        handler: AudioLoadResultHandler,
+    ) {
         val musicManager = findGuildMusicManager(guild)
 
         playerManager.loadItemOrdered(musicManager, trackURL, handler)

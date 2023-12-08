@@ -10,12 +10,12 @@ import java.util.Properties
 class BuildProperties {
     private val properties = Properties()
 
-    /* Current bot version */
+    // Current bot version
     val version: String by lazy {
         properties.getProperty("version")
     }
 
-    /* Load the build properties */
+    // Load the build properties
     fun load(): BuildProperties {
         properties.load(Thread.currentThread().contextClassLoader.getResourceAsStream("build.properties"))
 

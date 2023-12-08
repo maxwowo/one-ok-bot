@@ -17,44 +17,45 @@ import com.uchuhimo.konf.source.yaml
  * 3) System properties defined at run-time
  */
 class Configurations {
-    /* Configuration map */
-    private var configurations = Config {
-        addSpec(BotSpec)
-        addSpec(AudioSpec)
-        addSpec(ImageSpec)
-    }
-        .from.enabled(Feature.FAIL_ON_UNKNOWN_PATH).yaml.resource("default.yml")
-        .from.env()
-        .from.systemProperties()
+    // Configuration map
+    private var configurations =
+        Config {
+            addSpec(BotSpec)
+            addSpec(AudioSpec)
+            addSpec(ImageSpec)
+        }
+            .from.enabled(Feature.FAIL_ON_UNKNOWN_PATH).yaml.resource("default.yml")
+            .from.env()
+            .from.systemProperties()
 
-    /* Bot login token */
+    // Bot login token
     val token: String get() = configurations[BotSpec.token]
 
-    /* Bot command prefix */
+    // Bot command prefix
     val prefix: String get() = configurations[BotSpec.commandPrefix]
 
-    /* ID of the bot's owner */
+    // ID of the bot's owner
     val owner: String get() = configurations[BotSpec.owner]
 
-    /* Command to ask for help */
+    // Command to ask for help
     val helpCommand: String get() = configurations[BotSpec.helpCommand]
 
-    /* Link to the lo-fi beats stream */
+    // Link to the lo-fi beats stream
     val lofiURL: String get() = configurations[AudioSpec.lofiURL]
 
-    /* Link to a One Ok Rock playlist */
+    // Link to a One Ok Rock playlist
     val rockURL: String get() = configurations[AudioSpec.rockURL]
 
-    /* Link to No Scared */
+    // Link to No Scared
     val noScaredURL: String get() = configurations[AudioSpec.noScaredURL]
 
-    /* Link to Hip To Be Square */
+    // Link to Hip To Be Square
     val hipToBeSquareURL: String get() = configurations[AudioSpec.hipToBeSquareURL]
 
-    /* Link to Hip To Be Square */
+    // Link to Hip To Be Square
     val tutelURL: String get() = configurations[AudioSpec.tutelURL]
 
-    /* Link to the picture of Patrick Bateman holding an axe */
+    // Link to the picture of Patrick Bateman holding an axe
     val batemanAxeURL: String get() = configurations[ImageSpec.batemanAxeURL]
 }
 

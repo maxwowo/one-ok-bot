@@ -22,7 +22,10 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
         }
     }
 
-    fun queue(firstTrack: AudioTrack, remainingTracks: List<AudioTrack>) {
+    fun queue(
+        firstTrack: AudioTrack,
+        remainingTracks: List<AudioTrack>,
+    ) {
         if (!player.startTrack(firstTrack, true)) {
             queue.add(firstTrack)
         }
@@ -50,7 +53,11 @@ class TrackScheduler(private val player: AudioPlayer) : AudioEventAdapter() {
         nextTrack()
     }
 
-    override fun onTrackEnd(player: AudioPlayer, track: AudioTrack, reason: AudioTrackEndReason) {
+    override fun onTrackEnd(
+        player: AudioPlayer,
+        track: AudioTrack,
+        reason: AudioTrackEndReason,
+    ) {
         if (reason.mayStartNext) {
             if (looping) {
                 player.startTrack(track.makeClone(), false)

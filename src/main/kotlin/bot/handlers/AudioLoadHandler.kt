@@ -21,7 +21,6 @@ import java.awt.Color
  * @param event The event that caused the audio load handler to be used
  */
 abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResultHandler {
-
     /**
      * The music manager corresponding to the guild that the event was fired from
      */
@@ -34,21 +33,22 @@ abstract class AudioLoadHandler(private val event: CommandEvent) : AudioLoadResu
      * A helper method for the classes inheriting from [AudioLoadHandler] to use
      */
     protected fun connectToVoiceChannel() {
-        /* Only execute if bot is not currently connected to a voice channel in the event's guild */
+        // Only execute if bot is not currently connected to a voice channel in the event's guild
         if (!event.guild.audioManager.isConnected) {
             val author = event.author
             val audioManager = event.guild.audioManager
 
-            /* Find voice channel containing event's author */
-            val voiceChannel = event.guild.voiceChannels.find {
-                    channel ->
-                author in channel.members.map { it.user }
-            } ?: throw AuthorNotConnectedToVoiceChannelException(author)
+            // Find voice channel containing event's author
+            val voiceChannel =
+                event.guild.voiceChannels.find {
+                        channel ->
+                    author in channel.members.map { it.user }
+                } ?: throw AuthorNotConnectedToVoiceChannelException(author)
 
-            /* Deafen self to save resources */
+            // Deafen self to save resources
             audioManager.isSelfDeafened = true
 
-            /* Connect to the voice channel */
+            // Connect to the voice channel
             audioManager.openAudioConnection(voiceChannel)
         }
     }
