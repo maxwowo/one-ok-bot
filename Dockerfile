@@ -15,7 +15,7 @@ RUN gradle shadowJar
 #
 # Step 2 - Build a lean runtime container
 #
-FROM amazoncorretto:17.0.9-al2023-headless
+FROM amazoncorretto:17.0.10-al2023-headless
 
 # Install Doppler CLI
 RUN rpm --import 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' && \
