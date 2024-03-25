@@ -1,7 +1,7 @@
 #
 # Step 1 -Build the JAR file
 #
-FROM gradle:8.6.0-jdk17 AS builder
+FROM gradle:8.7.0-jdk17 AS builder
 
 # Create build directory
 WORKDIR /build
