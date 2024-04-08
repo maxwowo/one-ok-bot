@@ -40,7 +40,7 @@ dependencies {
   implementation 'io.github.microutils:kotlin-logging:3.0.5'
 
   /* Error tracking */
-  implementation 'io.sentry:sentry:7.6.0'
+  implementation 'io.sentry:sentry:7.7.0'
 
   testImplementation group: 'junit', name: 'junit', version: '4.13.2'
 }
