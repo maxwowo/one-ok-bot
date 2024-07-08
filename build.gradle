@@ -23,7 +23,7 @@ repositories {
 dependencies {
   /* Discord API */
   implementation 'com.jagrosh:jda-utilities:3.0.5'
-  implementation 'net.dv8tion:JDA:4.4.1_353'
+  implementation 'net.dv8tion:JDA:5.0.0'
 
   /* Kotlin */
   implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
