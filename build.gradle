@@ -36,7 +36,7 @@ dependencies {
   implementation 'com.uchuhimo:konf:1.1.2'
 
   /* Logging */
-  implementation 'ch.qos.logback:logback-classic:1.5.9'
+  implementation 'ch.qos.logback:logback-classic:1.5.10'
   implementation 'io.github.microutils:kotlin-logging:3.0.5'
 
   /* Error tracking */
